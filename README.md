@@ -1,23 +1,25 @@
-# TÍTULO DO PROJETO
+# MINHA COMPRA
 
-`CURSO`
+`ANÁLISE E DESENVOLVIMENTO DE SISTEMAS`
 
-`DISCIPLINA`
+`Projeto - Desenvolvimento de uma Aplicação Móvel em um Ambiente de Negócio`
 
-`SEMESTRE`
+`2022.2`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+O app _MINHA COMPRA_ se trata de uma solução para um problema que todos temos: organização na hora de realizar as compras do mês. Seja por motivos de falta de produtividade ou de gastos excedentes, nosso app tocará nesses problemas.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Bruno Carolino Lopes
+* Jhonata Jackson Monteiro Motta
+* Kaio Henrik de Paula Silva
+* Meriane dos Reis Dias
+* Pedro Henrique da Silva Góis
+* Thiago Roberto de Souza
 
 ## Orientador
 
-* Nome completo do professor 1
+* Mateus Curcino de Lima
 
 ## Instruções de utilização
 
