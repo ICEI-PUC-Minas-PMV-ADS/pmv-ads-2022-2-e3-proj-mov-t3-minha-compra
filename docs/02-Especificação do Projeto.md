@@ -59,10 +59,12 @@ Apresente aqui o nome e as oportunidades de melhorias para o processo 2. Em segu
 
 ## Indicadores de Desempenho
 
-A tabela  a seguir apresenta os principais indicadores de desempenho e algumas metas para o processo. 
+Apresente aqui os principais indicadores de desempenho e algumas metas para o processo. Atenção: as informações necessárias para gerar os indicadores devem estar contempladas no diagrama de classe. Colocar no mínimo 5 indicadores. 
 
-![Indicadores de Desempenho](img/minha-compra-indicadores.PNG)
+Usar o seguinte modelo: 
 
+![Indicadores de Desempenho](img/02-indic-desemp.png)
+Obs.: todas as informações para gerar os indicadores devem estar no diagrama de classe a ser apresentado a posteriori. 
 
 ## Requisitos
 
