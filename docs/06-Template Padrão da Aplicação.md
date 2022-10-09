@@ -1,12 +1,9 @@
 # Template Padrão da Aplicação
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>, <a href="4-Metodologia.md"> Metodologia</a>
+Layout padrão da aplicação contendo todos os fluxos de interação com usuário.
 
-Layout padrão da aplicação que será utilizado em todas as páginas com a definição de identidade visual, aspectos de responsividade e iconografia.
+![Template padrão](img/template-padrao.png)
 
-> **Links Úteis**:
+> **Link para o protótipo interativo**:
 >
-> - [CSS Website Layout (W3Schools)](https://www.w3schools.com/css/css_website_layout.asp)
-> - [Website Page Layouts](http://www.cellbiol.com/bioinformatics_web_development/chapter-3-your-first-web-page-learning-html-and-css/website-page-layouts/)
-> - [Perfect Liquid Layout](https://matthewjamestaylor.com/perfect-liquid-layouts)
-> - [How and Why Icons Improve Your Web Design](https://usabilla.com/blog/how-and-why-icons-improve-you-web-design/)
+> - [Protótipo interativo](https://www.figma.com/proto/hyxuxuUspBHvwszfhaCV6D/Minhas-Compras?node-id=12%3A442&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=12%3A442)
