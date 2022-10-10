@@ -42,9 +42,9 @@ A partir da compreensão do dia a dia das personas identificadas para o projeto,
 Cliente loga no App Minha Compra; Cria sua lista de produtos e vai em cadastar produto. Se o produto escolhido já existir no banco de dados do app, ele seleciona sua categoria e segue para cadastrar as informações adicionais do produto, se não, o cliente cadastra o produto e seleciona sua categoria. Se não houver categoria, também é feito o cadastro de mesma. Chegando no fluxo final, ele consegue visualizar sua lista de produtos e finalizar sua compra. O aplicativo também já retorna o valor total da lista e uma breve estatística. 
 
 
-### Processo 1 – Localizar Preços
+### Processo 1 – Comparação entre listas
 
-Localizar Preços. Localiza preços mais baratos comparado a outros estabelecimentos.
+Após o cliente criar a lista de produtos, o app faz uma comparação através de uma estatística, entre os produtos de sua lista atual.
 
 ![Processo 1](img/01-bpmn-proc.png)
 
