@@ -39,23 +39,15 @@ A partir da compreensão do dia a dia das personas identificadas para o projeto,
 
 ### Análise da Situação Atual
 
-Apresente aqui os problemas existentes que viabilizam sua proposta. Apresente o modelo do sistema como ele funciona hoje. Caso sua proposta seja inovadora e não existam processos claramente definidos, apresente como as tarefas que o seu sistema pretende implementar são executadas atualmente, mesmo que não se utilize tecnologia computacional. 
+Cliente loga no App Minha Compra; Cria sua lista de produtos e vai em cadastar produto. Se o produto escolhido já existir no banco de dados do app, ele seleciona sua categoria e segue para cadastrar as informações adicionais do produto, se não, o cliente cadastra o produto e seleciona sua categoria. Se não houver categoria, também é feito o cadastro de mesma. Chegando no fluxo final, ele consegue visualizar sua lista de produtos e finalizar sua compra. O aplicativo também já retorna o valor total da lista e uma breve estatística. 
 
-### Descrição Geral da Proposta
 
-Apresente aqui uma descrição da sua proposta abordando seus limites e suas ligações com as estratégias e objetivos do negócio. Apresente aqui as oportunidades de melhorias.
+### Processo 1 – Localizar Preços
 
-### Processo 1 – NOME DO PROCESSO
+Localizar Preços. Localiza preços mais baratos comparado a outros estabelecimentos.
 
-Apresente aqui o nome e as oportunidades de melhorias para o processo 1. Em seguida, apresente o modelo do processo 1, descrito no padrão BPMN. 
+![Processo 1](img/01-bpmn-proc.png)
 
-![Processo 1](img/02-bpmn-proc1.png)
-
-### Processo 2 – NOME DO PROCESSO
-
-Apresente aqui o nome e as oportunidades de melhorias para o processo 2. Em seguida, apresente o modelo do processo 2, descrito no padrão BPMN.
-
-![Processo 2](img/02-bpmn-proc2.png)
 
 ## Indicadores de Desempenho
 
