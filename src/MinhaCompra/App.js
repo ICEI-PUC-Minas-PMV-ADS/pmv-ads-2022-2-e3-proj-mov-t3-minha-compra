@@ -7,8 +7,8 @@ import Home from "./src/views/Home";
 import Lista from "./src/views/Lista";
 import Produto from "./src/views/Produto";
 import Statistic from "./src/views/Statistic";
-import Navigation from "./src/views/Navigation"
-import SplashScreen from "./src/views/SplashScreen";
+import Navigation from "./src/views/Navigation";
+import Exemple from "./src/views/Exemple";
 
 const Stack = createNativeStackNavigator();
 
@@ -65,8 +65,8 @@ export default function App() {
         />
 
         <Stack.Screen
-          name="SplashScreen"
-          component={SplashScreen}
+          name="Exemple"
+          component={Exemple}
           options={{
             headerShown: false,
           }}
