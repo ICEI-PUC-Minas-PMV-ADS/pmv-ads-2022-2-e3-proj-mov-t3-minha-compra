@@ -9,6 +9,7 @@ import Produto from "./src/views/Produto";
 import Statistic from "./src/views/Statistic";
 import Navigation from "./src/views/Navigation";
 import Exemple from "./src/views/Exemple";
+import Loading from "./src/views/Loading";
 
 const Stack = createNativeStackNavigator();
 
@@ -17,7 +18,15 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Home"
+          name="Loading"
+          component={Loading}
+          options={{
+            headerShown: false,
+          }}
+        />
+
+        <Stack.Screen
+          name="Login"
           component={Login}
           options={{
             headerShown: false,

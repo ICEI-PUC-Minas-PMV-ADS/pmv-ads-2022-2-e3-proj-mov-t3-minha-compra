@@ -7,8 +7,8 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
-import Lock from "../assets/lock.svg";
-import Mail from "../assets/mail.svg";
+import Lock from "../assets/image/lock.svg";
+import Mail from "../assets/image/mail.svg";
 
 export default function LoginInput(props) {
   const [email, setEmail] = useState("");
