@@ -1,4 +1,5 @@
 import Database from "./DbServices";
+import { defaultData } from "../assets/data/default_data";
 
 const DB_EXEC = Database.getConnection();
 
@@ -33,6 +34,11 @@ export const criaListaDeCompra = async (param) => {
   return results.rowsAffected;
 };
 
+export const consultaUsuario = async () => {
+  let results = await DB_EXEC("select * from usuario");
+  return results.rows._array;
+};
+
 export const consultaProdutoCadastro = async () => {
   let results = await DB_EXEC("select * from produto_cadastro");
   return results.rows._array;
@@ -51,4 +57,20 @@ export const consultaListaDeProduto = async () => {
 export const consultaListaDeCompra = async () => {
   let results = await DB_EXEC("select * from lista_compra");
   return results.rows._array;
+};
+
+export const deletaCategoria = async (id) => {
+  console.log("exclindo....");
+  let results = await DB_EXEC("delete from categoria where id =?", [id]);
+  return results.rows._array;
+};
+
+export const geraCategoria = () => {
+  const categorias = defaultData.map((categoria) => categoria.tipo);
+  return categorias;
+};
+
+export const geraProdutos = (categoria) => {
+  const produtos = defaultData.find((it) => it.tipo === categoria);
+  return produtos.itens;
 };

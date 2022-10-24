@@ -6,6 +6,9 @@ export const Database = {
 
     db.transaction((tx) => {
       tx.executeSql(
+        "create table if not exists usuario (cpf text primary key not null, nome text not null, email text not null, senha text not null);"
+      );
+      tx.executeSql(
         "create table if not exists produto_cadastro (id integer primary key not null, nome text not null, categoria text not null);"
       );
       tx.executeSql(
