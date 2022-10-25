@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import SearchBar from '../components/SearchBar';
+import Lists from '../components/Lists';
 
 import Profile from './Profile'
 import Statistic from './Statistic';
@@ -13,13 +14,13 @@ const Tap = createBottomTabNavigator()
 export default function Home() {
   return (
     <View style={styles.container}>
+
       <Text style={styles.titleText}>Minhas Listas</Text>
 
       <SearchBar />
 
-      <View style={styles.lists}>
-        <Text>Listas de Compras</Text>
-      </View>
+      <Lists name='Lista 1' />
+
     </View>
   );
 }
@@ -27,11 +28,13 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center'
+    alignItems: 'center',
+    marginHorizontal: 20
   },
   titleText: {
     fontSize: 15,
-    marginVertical: 20
+    marginTop: 20,
+    marginBottom: 27
   },
   lists: {
     flex: 1,

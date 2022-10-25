@@ -6,7 +6,7 @@ export default function SearchBar() {
           <View style={styles.container}>
             <Image
               source={require("../assets/image/search-icon.png")}
-              style={styles.searchIcon}
+              style={{left: -3}}
             >
             </Image>
 
@@ -22,13 +22,10 @@ export default function SearchBar() {
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'center',
-          marginVertical: 8,
+          marginBottom: 12,
           paddingVertical: 3,
           paddingHorizontal: 5,
           borderRadius: 50,
-          width: '88%'
-    },
-    searchIcon: {
-      left: -3
+          width: '100%'
     }
   });
