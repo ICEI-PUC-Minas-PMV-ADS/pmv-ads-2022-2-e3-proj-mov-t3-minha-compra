@@ -5,7 +5,7 @@ export default function HeaderAndReturnArrow({ props, title }) {
     return (
         <View style={styles.container}>
             <TouchableOpacity
-                onPress={() => props.navigate("Home")}
+                onPress={() => props.navigation.navigate("Home")}
             >
                 <Text style={styles.loginText}>{'<'}</Text>
             </TouchableOpacity>
