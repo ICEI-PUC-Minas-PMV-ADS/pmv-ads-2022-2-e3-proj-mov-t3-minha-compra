@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, TextInput, Image, Text } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 
 export default function Lists({name}) {
     return (
@@ -21,7 +21,11 @@ export default function Lists({name}) {
           marginTop: 15,
           paddingVertical: 18,
           borderRadius: 50,
-          width: '100%'
+          width: '100%',
+          shadowOffset: { width: 10, height: 10 },
+          shadowColor: 'black',
+          shadowOpacity: 1,
+          elevation: 9,
     },
     listTitle: {
         color: '#FFF',

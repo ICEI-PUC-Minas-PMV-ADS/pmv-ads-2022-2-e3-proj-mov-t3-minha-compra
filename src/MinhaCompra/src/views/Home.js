@@ -17,7 +17,7 @@ export default function Home() {
 
       <SearchBar />
 
-      {!user ?
+      {user ?
 
         <View style={styles.noListsView}>
           <Text style={{fontSize: 13}}>Clique no ícone "<Text style={styles.plusIcon}>+</Text>" abaixo para criar uma lista <Text style={{color: '#FA4A0C', fontWeight: '900'}}>;)</Text></Text>
