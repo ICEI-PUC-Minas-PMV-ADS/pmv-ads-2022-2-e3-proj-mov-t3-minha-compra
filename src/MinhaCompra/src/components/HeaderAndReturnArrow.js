@@ -7,7 +7,7 @@ export default function HeaderAndReturnArrow({ props, title }) {
             <TouchableOpacity
                 onPress={() => props.navigation.navigate("Home")}
             >
-                <Text style={styles.loginText}>{'<'}</Text>
+                <Text style={styles.returnArrow}>{'<'}</Text>
             </TouchableOpacity>
 
             <Text style={styles.titleText}>{title}</Text>
@@ -23,10 +23,10 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         marginTop: 17
     },
-    loginText: {
+    returnArrow: {
         fontSize: 20,
         fontWeight: '400',
-        right: 80,
+        right: 90,
         color: 'gray'
     },
     titleText: {
