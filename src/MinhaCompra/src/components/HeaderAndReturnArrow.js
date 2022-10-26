@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
 
-export default function HeaderAndReturnArrow({props}) {
+export default function HeaderAndReturnArrow({ props, title }) {
     return (
         <View style={styles.container}>
             <TouchableOpacity
@@ -10,7 +10,7 @@ export default function HeaderAndReturnArrow({props}) {
                 <Text style={styles.loginText}>{'<'}</Text>
             </TouchableOpacity>
 
-            <Text style={styles.titleText}>Criar Nova Lista</Text>
+            <Text style={styles.titleText}>{title}</Text>
         </View>
     )
 }
@@ -18,6 +18,7 @@ export default function HeaderAndReturnArrow({props}) {
 const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
+        justifyContent: 'center',
         flexDirection: 'row',
         marginBottom: 10,
         marginTop: 17
@@ -27,5 +28,9 @@ const styles = StyleSheet.create({
         fontWeight: '400',
         right: 80,
         color: 'gray'
+    },
+    titleText: {
+        fontSize: 15,
+        right: 1
     }
 });

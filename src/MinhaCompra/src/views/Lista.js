@@ -10,7 +10,7 @@ export default function Lista({navigation}) {
   return (
     <View style={styles.container}>
 
-      <HeaderAndReturnArrow navigation={navigation} />
+      <HeaderAndReturnArrow navigation={navigation} title='Criar nova lista' />
 
       <NewProductAtList product='Banana' quantity='2' value='4,00' />
 
