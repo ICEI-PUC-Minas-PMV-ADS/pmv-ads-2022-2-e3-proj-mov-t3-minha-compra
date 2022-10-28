@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, View, TextInput, Image } from "react-native";
 
-export default function SearchBar() {
+export default function SearchBar({onChangeText}) {
+
   return (
     <View style={styles.container}>
       <Image
@@ -10,7 +11,11 @@ export default function SearchBar() {
       >
       </Image>
 
-      <TextInput style={{ width: '85%', marginLeft: 3 }} />
+      <TextInput
+        style={{ width: '85%', marginLeft: 3 }}
+        onChangeText={onChangeText}
+        maxLength={30}
+      />
 
     </View>
   )
@@ -33,3 +38,5 @@ const styles = StyleSheet.create({
     elevation: 9,
   }
 });
+
+export const getFilteredLists = () => filteredList
