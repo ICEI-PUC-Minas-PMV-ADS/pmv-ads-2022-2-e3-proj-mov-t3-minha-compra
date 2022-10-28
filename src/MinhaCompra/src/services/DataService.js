@@ -34,10 +34,27 @@ export const criaListaDeCompra = async (param) => {
   return results.rowsAffected;
 };
 
+export const inserirUsuario = async (param) => {
+  let results = await DB_EXEC(
+    'insert into usuario(nome, cpf, email,senha) values (?,?,?,?)',
+    [param.nome, param.cpf, param.email , param.senha]
+  );
+  return results.rowsAffected;
+};
+
 export const consultaUsuario = async () => {
   let results = await DB_EXEC("select * from usuario");
   return results.rows._array;
 };
+
+export const atualizarUsuario = async (param) => {
+  let results = await DB_EXEC(
+    'update usuario set nome=?,email=?,senha=?, where cpf=?',
+    [param.nome, param.cpf, param.email , param.senha]
+  );
+  return results.rowsAffected;
+};
+
 
 export const consultaProdutoCadastro = async () => {
   let results = await DB_EXEC("select * from produto_cadastro");
