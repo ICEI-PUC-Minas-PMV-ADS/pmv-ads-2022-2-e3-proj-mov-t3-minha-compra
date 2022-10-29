@@ -31,9 +31,9 @@ export default function ProfileInput(props) {
         senha: senha,
         cpf: cpf,
       });
-      console.log("result: ", result);
-      props.go();
-      console.log("props: ", props.teste);
+
+      // props.isFocused();
+      props.navigation.navigate("Refresh");
     } catch (error) {
       console.log("erro: ", error);
     }

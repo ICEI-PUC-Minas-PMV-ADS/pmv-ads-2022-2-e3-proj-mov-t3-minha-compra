@@ -1,4 +1,4 @@
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useIsFocused } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
@@ -7,6 +7,7 @@ import { consultaUsuario, inserirUsuario } from "../services/DataService";
 
 export default function Profile({ navigation }) {
   const [userData, setUserData] = useState({});
+  const isFocused = useIsFocused();
 
   // async function cadastra() {
   //   console.log("Entrei na func cadastra");
@@ -20,17 +21,13 @@ export default function Profile({ navigation }) {
   //   console.log(result);
   // }
 
-  function navega() {
-    navigation.navigate("Profile");
-  }
-
   useEffect(() => {
     consultaUsuario()
       .then((data) => {
         setUserData(data[0]);
       })
       .catch((e) => console.log("erro: ", e));
-  }, []);
+  }, [isFocused]);
 
   // async function ler() {
   //   console.log("Entrei na func ler");
@@ -56,8 +53,7 @@ export default function Profile({ navigation }) {
         <Text style={{ paddingTop: 20, fontSize: 50 }}>{userData.nome}</Text>
         <Text style={{ paddingTop: 20, fontSize: 15 }}>{userData.email}</Text>
       </View>
-      <ProfileInput go={navega} teste={"testee"} />
-      <Text onPress={() => navigation.navigate("Profile")}>click</Text>
+      <ProfileInput isFocused={isFocused} navigation={navigation} />
     </View>
   );
 }
