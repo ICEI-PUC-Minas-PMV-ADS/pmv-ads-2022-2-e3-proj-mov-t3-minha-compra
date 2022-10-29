@@ -10,6 +10,7 @@ import Statistic from "./src/views/Statistic";
 import Navigation from "./src/views/Navigation";
 import Exemple from "./src/views/Exemple";
 import Loading from "./src/views/Loading";
+import Profile from "./src/views/Profile";
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +18,14 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
+          options={{
+            headerShown: false,
+          }}
+        />
+
         <Stack.Screen
           name="Loading"
           component={Loading}

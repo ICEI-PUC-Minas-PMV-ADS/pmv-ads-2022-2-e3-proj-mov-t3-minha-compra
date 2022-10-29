@@ -36,8 +36,8 @@ export const criaListaDeCompra = async (param) => {
 
 export const inserirUsuario = async (param) => {
   let results = await DB_EXEC(
-    'insert into usuario(nome, cpf, email,senha) values (?,?,?,?)',
-    [param.nome, param.cpf, param.email , param.senha]
+    "insert into usuario(cpf, nome , email, senha) values (?,?,?,?)",
+    [param.cpf, param.nome, param.email, param.senha]
   );
   return results.rowsAffected;
 };
@@ -48,13 +48,13 @@ export const consultaUsuario = async () => {
 };
 
 export const atualizarUsuario = async (param) => {
+  // console.log("param >>>>>>>>>>>>>>> ", param);
   let results = await DB_EXEC(
-    'update usuario set nome=?,email=?,senha=?, where cpf=?',
-    [param.nome, param.cpf, param.email , param.senha]
+    "update usuario set nome=?,email=?,senha=? where cpf=?",
+    [param.nome, param.email, param.senha, param.cpf]
   );
   return results.rowsAffected;
 };
-
 
 export const consultaProdutoCadastro = async () => {
   let results = await DB_EXEC("select * from produto_cadastro");

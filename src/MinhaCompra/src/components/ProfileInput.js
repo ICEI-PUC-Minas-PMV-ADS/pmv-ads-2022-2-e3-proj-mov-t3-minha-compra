@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -8,14 +8,48 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-export default function ProfileInput() {
+import {
+  consultaUsuario,
+  inserirUsuario,
+  atualizarUsuario,
+  inserirTest,
+  consultaTest,
+  updateTest,
+} from "../services/DataService";
+
+export default function ProfileInput(props) {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [cpf, setCpf] = useState("");
   const [nome, setNome] = useState("");
 
-  const onPress = () => console.log("ok");
+  const onPress = async () => {
+    try {
+      const result = await atualizarUsuario({
+        nome: nome,
+        email: email,
+        senha: senha,
+        cpf: cpf,
+      });
+      console.log("result: ", result);
+      props.go();
+      console.log("props: ", props.teste);
+    } catch (error) {
+      console.log("erro: ", error);
+    }
+  };
 
+  useEffect(() => {
+    consultaUsuario()
+      .then((data) => {
+        const userData = data[0];
+        setEmail(userData.email);
+        setSenha(userData.senha);
+        setCpf(userData.cpf);
+        setNome(userData.nome);
+      })
+      .catch((e) => console.log("erro: ", e));
+  }, []);
   return (
     <View style={styles.inputArea}>
       <View style={styles.inputBox}>
@@ -74,14 +108,14 @@ export default function ProfileInput() {
         >
           <TextInput
             style={styles.input}
-            onChangeText={setSenha}
+            // onChangeText={setSenha}
             value={senha}
             placeholder="Senha"
           />
         </View>
         <View style={{ alignItems: "center" }}>
           <TouchableOpacity style={styles.button} onPress={onPress}>
-            <Text style={{ color: "#FFFFFF" }}>Cadastrar</Text>
+            <Text style={{ color: "#FFFFFF" }}>Atualizar</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -121,5 +155,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 20,
+    marginBottom: 10,
   },
 });
