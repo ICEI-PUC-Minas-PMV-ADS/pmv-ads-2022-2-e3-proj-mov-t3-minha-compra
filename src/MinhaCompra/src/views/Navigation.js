@@ -59,8 +59,8 @@ export default function Navigation() {
             component={Lista}
 						options={{
 							tabBarLabel: '',
-							tabBarIcon: ({ size, color }) => (
-								<ButtonFab size={size} color={color} />
+							tabBarIcon: ({ size }) => (
+								<ButtonFab name='plus' size={size} isNewProduct={false} />
 							)
 					}}
         />

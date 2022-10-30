@@ -53,6 +53,7 @@ export default function SplashScreen() {
       id_produto: 2,
       valor_total: 10.0,
       cpf: 40028922,
+      nome_lista: "Março"
     })
       .then((dados) => {
         console.log(dados);

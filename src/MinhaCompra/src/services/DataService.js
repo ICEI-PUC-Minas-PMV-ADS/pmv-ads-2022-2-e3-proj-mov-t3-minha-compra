@@ -28,10 +28,10 @@ export const criaListaDeProduto = async (param) => {
 
 export const criaListaDeCompra = async (param) => {
   let results = await DB_EXEC(
-    "insert into lista_compra(id_produto, valor_total, cpf) values (?,?,?)",
-    [param.id_produto, param.valor_total, param.cpf]
+    "insert into lista_compra(id_produto, valor_total, cpf, nome_lista) values (?,?,?,?)",
+    [param.id_produto, param.valor_total, param.cpf, param.nome_lista]
   );
-  return results.rowsAffected;
+  return results.rows._array;
 };
 
 export const consultaUsuario = async () => {
