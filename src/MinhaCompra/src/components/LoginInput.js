@@ -50,7 +50,7 @@ export default function LoginInput(props) {
         <View style={{ alignItems: "center" }}>
           <TouchableOpacity
             style={styles.button}
-            onPress={() => props.navigation.navigate("Navigation")}
+            onPress={() => props.navigation.navigate("Produto")}
           >
             <Text style={{ color: "#FFFFFF" }}>Entrar</Text>
           </TouchableOpacity>

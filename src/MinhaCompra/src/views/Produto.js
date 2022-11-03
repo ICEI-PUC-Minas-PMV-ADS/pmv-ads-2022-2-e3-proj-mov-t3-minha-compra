@@ -4,13 +4,19 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import Mail from "../assets/image/arrow.svg";
 
 export default function Produto({ navigation }) {
+  const [currentProduct, setCurrentProduct] = useState({
+    name: "",
+    cat: "",
+    qtd: "",
+    totalValue: "",
+  });
   return (
     <View style={styles.container}>
       <Text style={{ marginTop: 50, marginBottom: 50 }}>Produto</Text>
 
       <TouchableOpacity
         style={styles.comboBox}
-        onPress={() => navigation.navigate("ModalCategoria")}
+        onPress={() => navigation.navigate("MCategoria")}
       >
         <View
           style={{
@@ -28,7 +34,7 @@ export default function Produto({ navigation }) {
 
       <TouchableOpacity
         style={styles.comboBox}
-        onPress={() => navigation.navigate("ModalProduto")}
+        onPress={() => navigation.navigate("MProduto")}
       >
         <View
           style={{

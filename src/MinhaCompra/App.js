@@ -10,6 +10,8 @@ import Statistic from "./src/views/Statistic";
 import Navigation from "./src/views/Navigation";
 import Exemple from "./src/views/Exemple";
 import Loading from "./src/views/Loading";
+import ModalProduto from "./src/components/ModalProduto";
+import ModalCategoria from "./src/components/ModalCategoria";
 
 const Stack = createNativeStackNavigator();
 
@@ -74,8 +76,16 @@ export default function App() {
         />
 
         <Stack.Screen
-          name="Exemple"
-          component={Exemple}
+          name="MProduto"
+          component={ModalProduto}
+          options={{
+            headerShown: false,
+          }}
+        />
+
+        <Stack.Screen
+          name="MCategoria"
+          component={ModalCategoria}
           options={{
             headerShown: false,
           }}

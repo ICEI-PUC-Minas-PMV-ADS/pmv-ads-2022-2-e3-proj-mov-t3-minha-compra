@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 export default function ModalProduto() {
   return (
     <View style={styles.container}>
-      <Text>ModalCateria</Text>
+      <Text>ModaProduto</Text>
     </View>
   );
 }
@@ -15,5 +15,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     backgroundColor: "#F5F5F8",
+    justifyContent: "center",
   },
 });
