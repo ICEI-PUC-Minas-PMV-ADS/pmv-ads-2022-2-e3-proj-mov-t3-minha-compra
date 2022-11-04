@@ -10,13 +10,37 @@ import {
 import Lock from "../assets/image/lock.svg";
 import Mail from "../assets/image/mail.svg";
 
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from "../firebase/config";
+
 export default function SignUpInput() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [cpf, setCpf] = useState("");
   const [nome, setNome] = useState("");
 
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
   const onPress = () => console.log("ok");
+
+  const handleCreateAccount = () => {
+    createUserWithEmailAndPassword(auth, email, senha)
+      .then((userCredential) => {
+        console.log("Account created!");
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log("create.account.error: ", error);
+      });
+  };
 
   return (
     <View style={styles.inputArea}>
@@ -31,8 +55,8 @@ export default function SignUpInput() {
         >
           <TextInput
             style={styles.input}
-            onChangeText={setNome}
-            value={email}
+            onChangeText={(text) => setNome(text)}
+            value={nome}
             placeholder="Nome Completo"
           />
         </View>
@@ -46,8 +70,8 @@ export default function SignUpInput() {
         >
           <TextInput
             style={styles.input}
-            onChangeText={setCpf}
-            value={senha}
+            onChangeText={(text) => setCpf(text)}
+            value={cpf}
             placeholder="CPF"
           />
         </View>
@@ -61,7 +85,7 @@ export default function SignUpInput() {
         >
           <TextInput
             style={styles.input}
-            onChangeText={setEmail}
+            onChangeText={(text) => setEmail(text)}
             value={email}
             placeholder="Email"
           />
@@ -76,13 +100,13 @@ export default function SignUpInput() {
         >
           <TextInput
             style={styles.input}
-            onChangeText={setSenha}
+            onChangeText={(text) => setSenha(text)}
             value={senha}
             placeholder="Senha"
           />
         </View>
         <View style={{ alignItems: "center" }}>
-          <TouchableOpacity style={styles.button} onPress={onPress}>
+          <TouchableOpacity style={styles.button} onPress={handleCreateAccount}>
             <Text style={{ color: "#FFFFFF" }}>Cadastrar</Text>
           </TouchableOpacity>
         </View>

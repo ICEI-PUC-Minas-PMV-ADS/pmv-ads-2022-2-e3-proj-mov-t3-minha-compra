@@ -5,6 +5,8 @@ module.exports = (() => {
 
   const { transformer, resolver } = config;
 
+  resolver.assetExts.push("cjs");
+
   config.transformer = {
     ...transformer,
     babelTransformerPath: require.resolve("react-native-svg-transformer"),

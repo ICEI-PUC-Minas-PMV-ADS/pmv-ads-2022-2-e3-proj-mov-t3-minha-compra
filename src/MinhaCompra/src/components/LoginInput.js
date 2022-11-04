@@ -9,12 +9,36 @@ import {
 } from "react-native";
 import Lock from "../assets/image/lock.svg";
 import Mail from "../assets/image/mail.svg";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from "../firebase/config";
 
 export default function LoginInput(props) {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
 
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
   const onPress = () => console.log("ok");
+
+  const handleLogin = () => {
+    signInWithEmailAndPassword(auth, email, senha)
+      .then((userCredential) => {
+        console.log("Signed in!");
+        const user = userCredential.user;
+        console.log(user);
+        //props.navigation.navigate("Navigation")
+      })
+      .catch((error) => {
+        console.log("login.error: ", error);
+      });
+  };
 
   return (
     <View style={styles.inputArea}>
@@ -48,10 +72,7 @@ export default function LoginInput(props) {
           Esqueci a senha
         </Text>
         <View style={{ alignItems: "center" }}>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => props.navigation.navigate("Navigation")}
-          >
+          <TouchableOpacity style={styles.button} onPress={handleLogin}>
             <Text style={{ color: "#FFFFFF" }}>Entrar</Text>
           </TouchableOpacity>
         </View>
