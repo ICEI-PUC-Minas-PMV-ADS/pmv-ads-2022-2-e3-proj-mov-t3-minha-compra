@@ -28,19 +28,30 @@ export default function LoginInput(props) {
 
     if (inValid) {
       Alert.alert("Preencha todos os campos.");
+    } else {
+      login();
     }
   };
 
-  const handleLogin = () => {
+  const login = () => {
     signInWithEmailAndPassword(auth, email, senha)
       .then((userCredential) => {
         console.log("Signed in!");
         const user = userCredential.user;
         console.log(user);
-        //props.navigation.navigate("Navigation")
+        props.navigation.navigate("Navigation");
       })
       .catch((error) => {
-        console.log("login.error: ", error);
+        if (
+          error.message.includes("auth/wrong-password") ||
+          error.message.includes("firebase.login.error")
+        ) {
+          Alert.alert("Email ou senha inválido. Tente novamente.");
+        } else {
+          Alert.alert("Erro inesperado, tente novamente mais tarde.");
+        }
+
+        throw new Error("firebase.login.error: ", error);
       });
   };
 
@@ -54,6 +65,7 @@ export default function LoginInput(props) {
             onChangeText={setEmail}
             value={email}
             placeholder="Email"
+            maxLength={20}
           />
         </View>
         <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -63,6 +75,8 @@ export default function LoginInput(props) {
             onChangeText={setSenha}
             value={senha}
             placeholder="Senha"
+            secureTextEntry={true}
+            maxLength={20}
           />
         </View>
         <Text

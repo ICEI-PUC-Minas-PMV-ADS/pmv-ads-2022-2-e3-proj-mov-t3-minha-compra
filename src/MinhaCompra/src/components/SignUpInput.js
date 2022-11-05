@@ -9,15 +9,12 @@ import {
   Alert,
 } from "react-native";
 
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../firebase/config";
-import { inserirUsuario } from "../services/DataService";
+import { excluiTodosOsUsuarios, inserirUsuario } from "../services/DataService";
+import { formataCPF } from "../utils/Formaters";
 
 export default function SignUpInput() {
   const [email, setEmail] = useState("");
@@ -36,15 +33,7 @@ export default function SignUpInput() {
       Alert.alert("Preencha todos os campos.");
     } else {
       try {
-        handleCreateAccount();
-
-        const result = await inserirUsuario({
-          email,
-          senha,
-          cpf,
-          nome,
-        });
-        console.log("usuário salvo com sucesso no banco local...");
+        createUserAccount();
         console.log("SQLite inserirUsuario result: ", result);
       } catch (error) {
         console.log("validate.submit.error: ", error);
@@ -52,15 +41,18 @@ export default function SignUpInput() {
     }
   };
 
-  const handleCreateAccount = () => {
+  const format = (value) => {
+    let result = formataCPF(value);
+    setCpf(result);
+  };
+
+  const createUserAccount = () => {
     createUserWithEmailAndPassword(auth, email, senha)
-      .then(() => {
+      .then(async () => {
         console.log("conta criada com sucesso no firebase...");
+        await createLocalUserAccount();
+        resetForm();
         Alert.alert("Usuário criado com sucesso.");
-        setEmail("");
-        setSenha("");
-        setCpf("");
-        setNome("");
       })
       .catch((error) => {
         if (error.message.includes("email-already-in-use")) {
@@ -71,6 +63,27 @@ export default function SignUpInput() {
 
         throw new Error("firebase.create.account.error: ", error);
       });
+  };
+
+  const createLocalUserAccount = async () => {
+    try {
+      await inserirUsuario({
+        email,
+        senha,
+        cpf,
+        nome,
+      });
+      console.log("usuário salvo com sucesso no banco local...");
+    } catch (error) {
+      console.log("createLocalUserAccount.error: ", error);
+    }
+  };
+
+  const resetForm = () => {
+    setEmail("");
+    setSenha("");
+    setCpf("");
+    setNome("");
   };
 
   return (
@@ -89,6 +102,7 @@ export default function SignUpInput() {
             onChangeText={(text) => setNome(text)}
             value={nome}
             placeholder="Nome Completo"
+            maxLength={40}
           />
         </View>
         <View
@@ -101,9 +115,10 @@ export default function SignUpInput() {
         >
           <TextInput
             style={styles.input}
-            onChangeText={(text) => setCpf(text)}
+            onChangeText={(text) => format(text)}
             value={cpf}
             placeholder="CPF"
+            maxLength={14}
           />
         </View>
         <View
@@ -119,6 +134,7 @@ export default function SignUpInput() {
             onChangeText={(text) => setEmail(text)}
             value={email}
             placeholder="Email"
+            maxLength={40}
           />
         </View>
         <View
@@ -134,6 +150,8 @@ export default function SignUpInput() {
             onChangeText={(text) => setSenha(text)}
             value={senha}
             placeholder="Senha"
+            secureTextEntry={true}
+            maxLength={20}
           />
         </View>
         <View style={{ alignItems: "center" }}>
