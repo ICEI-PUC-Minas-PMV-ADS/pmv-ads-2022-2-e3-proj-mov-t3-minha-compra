@@ -34,6 +34,14 @@ export const criaListaDeCompra = async (param) => {
   return results.rows._array;
 };
 
+export const inserirUsuario = async (param) => {
+  let results = await DB_EXEC(
+    "insert into usuario(cpf, nome , email, senha) values (?,?,?,?)",
+    [param.cpf, param.nome, param.email, param.senha]
+  );
+  return results.rowsAffected;
+};
+
 export const consultaUsuario = async () => {
   let results = await DB_EXEC("select * from usuario");
   return results.rows._array;

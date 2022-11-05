@@ -6,14 +6,11 @@ import {
   View,
   TextInput,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 import Lock from "../assets/image/lock.svg";
 import Mail from "../assets/image/mail.svg";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../firebase/config";
@@ -25,7 +22,14 @@ export default function LoginInput(props) {
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
 
-  const onPress = () => console.log("ok");
+  const validateSubumit = () => {
+    let form = [email, senha];
+    let inValid = form.includes("");
+
+    if (inValid) {
+      Alert.alert("Preencha todos os campos.");
+    }
+  };
 
   const handleLogin = () => {
     signInWithEmailAndPassword(auth, email, senha)
@@ -72,7 +76,7 @@ export default function LoginInput(props) {
           Esqueci a senha
         </Text>
         <View style={{ alignItems: "center" }}>
-          <TouchableOpacity style={styles.button} onPress={handleLogin}>
+          <TouchableOpacity style={styles.button} onPress={validateSubumit}>
             <Text style={{ color: "#FFFFFF" }}>Entrar</Text>
           </TouchableOpacity>
         </View>
