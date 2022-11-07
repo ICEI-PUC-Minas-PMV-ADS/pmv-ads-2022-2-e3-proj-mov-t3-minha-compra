@@ -1,5 +1,6 @@
 import Database from "./DbServices";
 import { defaultData } from "../assets/data/default_data";
+import { exp } from "react-native/Libraries/Animated/Easing";
 
 const DB_EXEC = Database.getConnection();
 
@@ -31,6 +32,18 @@ export const criaListaDeCompra = async (param) => {
     "insert into lista_compra(id_produto, valor_total, cpf, nome_lista) values (?,?,?,?)",
     [param.id_produto, param.valor_total, param.cpf, param.nome_lista]
   );
+  return results.rows._array;
+};
+
+export const inserirUsuario = async (param) => {
+  let results = await DB_EXEC(
+    "insert into usuario(cpf, nome , email, senha) values (?,?,?,?)",
+    [param.cpf, param.nome, param.email, param.senha]
+  );
+  return results.rowsAffected;
+};
+export const excluiTodosOsUsuarios = async () => {
+  let results = await DB_EXEC(" DELETE from usuario");
   return results.rows._array;
 };
 
