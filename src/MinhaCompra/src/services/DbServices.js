@@ -18,7 +18,7 @@ export const Database = {
         "create table if not exists lista_produto (id integer primary key not null, id_produto integer not null, preco real not null, quantidade integer not null);"
       );
       tx.executeSql(
-        "create table if not exists lista_compra (id integer primary key not null, id_produto integer not null, valor_total real not null, cpf integer not null);"
+        "create table if not exists lista_compra (id integer primary key not null, id_produto integer not null, valor_total real not null, cpf integer not null, nome_lista text not null);"
       );
     });
 
