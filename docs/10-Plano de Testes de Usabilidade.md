@@ -9,7 +9,7 @@
 
 > - Estado em que o software deve estar no início do teste: Fase de protótipo (em construção) 
 
-> - Usuários envolvidos no teste: Pastores e secretários de igrejas 
+> - Usuários envolvidos no teste: Pessoas que realizam compras e tem acesso a um smartphone. 
 
  
 > - Tarefas definidas para que os usuários executem 
