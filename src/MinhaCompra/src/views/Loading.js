@@ -12,6 +12,8 @@ export default function Loading({ navigation }) {
 
       if (result.length === 0) {
         setTimeout(() => navigation.navigate("Login"), 1000);
+      } else {
+        setTimeout(() => navigation.navigate("Navigation"), 1000);
       }
     } catch (error) {}
   }
