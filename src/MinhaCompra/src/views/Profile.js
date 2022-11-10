@@ -25,6 +25,7 @@ export default function Profile({ navigation }) {
     consultaUsuario()
       .then((data) => {
         setUserData(data[0]);
+        
       })
       .catch((e) => console.log("erro: ", e));
   }, [isFocused]);
@@ -37,23 +38,8 @@ export default function Profile({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <View style={{ alignItems: "center" }}>
-        <View
-          style={{
-            backgroundColor: "#FA4A0C",
-            width: 100,
-            height: 100,
-            justifyContent: "center",
-            alignItems: "center",
-            borderRadius: 60,
-          }}
-        >
-          <Text style={{ color: "#FFFFFF", fontSize: 50 }}>M</Text>
-        </View>
-        <Text style={{ paddingTop: 20, fontSize: 50 }}>{userData.nome}</Text>
-        <Text style={{ paddingTop: 20, fontSize: 15 }}>{userData.email}</Text>
-      </View>
-      <ProfileInput isFocused={isFocused} navigation={navigation} />
+      
+      <ProfileInput isFocused={isFocused} navigation={navigation} userData={userData} />
     </View>
   );
 }

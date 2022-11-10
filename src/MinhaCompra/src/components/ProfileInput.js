@@ -17,7 +17,7 @@ import {
   updateTest,
 } from "../services/DataService";
 
-export default function ProfileInput(props) {
+export default function ProfileInput({props, userData}) {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [cpf, setCpf] = useState("");
@@ -52,12 +52,30 @@ export default function ProfileInput(props) {
   }, []);
   return (
     <View style={styles.inputArea}>
+      <View style={{ alignItems: "center", marginBottom: 30 }}>
+        <View
+          style={{
+            backgroundColor: "#FA4A0C",
+            width: 150,
+            height: 150,
+            justifyContent: "center",
+            alignItems: "center",
+            borderRadius: 80,
+          }}
+        >
+          <Text style={{ color: "#FFFFFF", fontSize: 65 }}>{userData?.nome?.substring(0, 1)}</Text>
+        </View>
+        <Text style={{ paddingTop: 20, fontSize: 50 }}>{userData.nome}</Text>
+        <Text style={{ paddingTop: 20, fontSize: 15 }}>{userData.email}</Text>
+        <Text style={{ paddingTop: 10, fontSize: 15 }}>{userData.cpf}</Text>
+      </View>
+
       <View style={styles.inputBox}>
         <View
           style={{
             flexDirection: "row",
             alignItems: "center",
-            marginBottom: 10,
+            marginBottom: 8,
             width: "100%",
           }}
         >
@@ -76,18 +94,12 @@ export default function ProfileInput(props) {
             width: "100%",
           }}
         >
-          <TextInput
-            style={styles.input}
-            onChangeText={setCpf}
-            value={cpf}
-            placeholder="CPF"
-          />
         </View>
         <View
           style={{
             flexDirection: "row",
             alignItems: "center",
-            marginBottom: 10,
+            marginBottom: 20,
             width: "100%",
           }}
         >
