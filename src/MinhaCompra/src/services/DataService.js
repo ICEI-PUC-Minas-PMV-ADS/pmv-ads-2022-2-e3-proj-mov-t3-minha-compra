@@ -1,5 +1,6 @@
 import Database from "./DbServices";
 import { defaultData } from "../assets/data/default_data";
+import { exp } from "react-native/Libraries/Animated/Easing";
 
 const DB_EXEC = Database.getConnection();
 

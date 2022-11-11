@@ -9,6 +9,7 @@ export default function Loading({ navigation }) {
       console.log("Carregando app...");
 
       const result = await consultaUsuario();
+      console.log("usuário no banco local: ", result);
 
       if (result.length === 0) {
         setTimeout(() => navigation.navigate("Login"), 1000);
