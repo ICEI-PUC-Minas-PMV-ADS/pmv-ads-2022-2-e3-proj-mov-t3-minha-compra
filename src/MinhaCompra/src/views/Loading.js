@@ -11,10 +11,11 @@ export default function Loading({ navigation }) {
       const result = await consultaUsuario();
       console.log("usuário no banco local: ", result);
 
-      // if (result.length === 0) {
-      //   setTimeout(() => navigation.navigate("Login"), 1000);
-      // }
-      navigation.navigate("Login");
+      if (result.length === 0) {
+        setTimeout(() => navigation.navigate("Login"), 1000);
+      } else {
+        setTimeout(() => navigation.navigate("Navigation"), 1000);
+      }
     } catch (error) {}
   }
 
