@@ -10,9 +10,11 @@ import {
 } from "react-native";
 
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../firebase/config";
+import { setDoc, doc } from "firebase/firestore";
+import { db } from "../firebase/config";
+
 import { excluiTodosOsUsuarios, inserirUsuario } from "../services/DataService";
 import { formataCPF } from "../utils/Formaters";
 
@@ -33,20 +35,37 @@ export default function SignUpInput() {
       Alert.alert("Preencha todos os campos.");
     } else {
       try {
-        createUserAccount();
-        console.log("SQLite inserirUsuario result: ", result);
+        await createUserAccount();
       } catch (error) {
         console.log("validate.submit.error: ", error);
       }
     }
   };
 
+  async function registration() {
+    try {
+      setDoc(doc(db, "users", nome), {
+        nome: nome,
+        email: email,
+        cpf: cpf,
+        senha: senha,
+      })
+        .then(() => {
+          console.log("save");
+        })
+        .catch((err) => console.log(err));
+    } catch (err) {
+      Alert.alert("There is something wrong!!!!", err.message);
+    }
+  }
+
   const format = (value) => {
     let result = formataCPF(value);
     setCpf(result);
   };
 
-  const createUserAccount = () => {
+  const createUserAccount = async () => {
+    await registration();
     createUserWithEmailAndPassword(auth, email, senha)
       .then(async () => {
         console.log("conta criada com sucesso no firebase...");
