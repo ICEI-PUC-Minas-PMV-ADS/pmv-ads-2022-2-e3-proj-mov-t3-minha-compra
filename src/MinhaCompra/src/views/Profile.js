@@ -6,7 +6,7 @@ import ProfileInput from "../components/ProfileInput";
 import { consultaUsuario, inserirUsuario } from "../services/DataService";
 
 export default function Profile({ navigation }) {
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState("");
   const isFocused = useIsFocused();
 
   // async function cadastra() {
@@ -25,6 +25,7 @@ export default function Profile({ navigation }) {
     consultaUsuario()
       .then((data) => {
         setUserData(data[0]);
+        console.log("USER DATA >>>>>>>>>>>>>>>>>>>>", userData)
         
       })
       .catch((e) => console.log("erro: ", e));

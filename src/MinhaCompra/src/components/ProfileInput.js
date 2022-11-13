@@ -17,7 +17,7 @@ import {
   updateTest,
 } from "../services/DataService";
 
-export default function ProfileInput({props, userData}) {
+export default function ProfileInput(props) {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [cpf, setCpf] = useState("");
@@ -25,7 +25,7 @@ export default function ProfileInput({props, userData}) {
 
   const onPress = async () => {
     try {
-      const result = await atualizarUsuario({
+      await atualizarUsuario({
         nome: nome,
         email: email,
         senha: senha,
@@ -63,11 +63,11 @@ export default function ProfileInput({props, userData}) {
             borderRadius: 80,
           }}
         >
-          <Text style={{ color: "#FFFFFF", fontSize: 65 }}>{userData?.nome?.substring(0, 1)}</Text>
+          <Text style={{ color: "#FFFFFF", fontSize: 65 }}>{props.userData?.nome?.substring(0, 1)}</Text>
         </View>
-        <Text style={{ paddingTop: 20, fontSize: 50 }}>{userData.nome}</Text>
-        <Text style={{ paddingTop: 20, fontSize: 15 }}>{userData.email}</Text>
-        <Text style={{ paddingTop: 10, fontSize: 15 }}>{userData.cpf}</Text>
+        <Text style={{ paddingTop: 20, fontSize: 50 }}>{props.userData?.nome}</Text>
+        <Text style={{ paddingTop: 20, fontSize: 15 }}>{props.userData?.email}</Text>
+        <Text style={{ paddingTop: 10, fontSize: 15 }}>{props.userData?.cpf}</Text>
       </View>
 
       <View style={styles.inputBox}>
@@ -120,7 +120,7 @@ export default function ProfileInput({props, userData}) {
         >
           <TextInput
             style={styles.input}
-            // onChangeText={setSenha}
+            onChangeText={setSenha}
             value={senha}
             placeholder="Senha"
           />
