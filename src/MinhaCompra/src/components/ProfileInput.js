@@ -75,6 +75,7 @@ export default function ProfileInput(props) {
       } catch (e) {
         if (e.message.includes("auth/invalid-email")) {
           Alert.alert("Por favor, digite um email válido.")
+          return;
         }
       }
 
@@ -98,6 +99,7 @@ export default function ProfileInput(props) {
       } catch (e) {
         if (e.message.includes("auth/weak-password")) {
           Alert.alert("A senha deve ter, pelo menos, 6 caracteres.")
+          return;
         }
       }
 
