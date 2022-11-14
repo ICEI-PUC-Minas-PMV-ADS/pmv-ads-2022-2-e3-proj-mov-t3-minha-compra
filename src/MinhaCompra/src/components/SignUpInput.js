@@ -44,7 +44,7 @@ export default function SignUpInput() {
 
   async function registration() {
     try {
-      setDoc(doc(db, "users", nome), {
+      setDoc(doc(db, "users", cpf), {
         nome: nome,
         email: email,
         cpf: cpf,
