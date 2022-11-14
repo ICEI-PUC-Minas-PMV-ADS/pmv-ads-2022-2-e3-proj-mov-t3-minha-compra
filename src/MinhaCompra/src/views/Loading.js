@@ -22,7 +22,7 @@ export default function Loading({ navigation }) {
 
         signInWithEmailAndPassword(auth, result[0]?.email, result[0]?.senha)
           .then((userCredential) => {
-            console.log("Automatic signed in!");
+            console.log("Automatic login!");
             const user = userCredential.user;
             console.log(user);
             setTimeout(() => navigation.navigate("Navigation"), 1000);

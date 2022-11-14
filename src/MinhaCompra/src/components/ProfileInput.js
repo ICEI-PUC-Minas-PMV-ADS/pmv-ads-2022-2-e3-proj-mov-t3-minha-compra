@@ -133,7 +133,7 @@ export default function ProfileInput(props) {
         >
           <Text style={{ color: "#FFFFFF", fontSize: 65 }}>{props.userData?.nome?.substring(0, 1)}</Text>
         </View>
-        <Text style={{ paddingTop: 20, fontSize: 50 }}>{props.userData?.nome}</Text>
+        <Text style={{ paddingTop: 20, fontSize: 40, marginHorizontal: 30 }}>{props.userData?.nome}</Text>
         <Text style={{ paddingTop: 15, fontSize: 20, color: "#808080" }}>{props.userData?.email}</Text>
         <Text style={{ paddingTop: 10, fontSize: 15, color: "#808080" }}>{props.userData?.cpf}</Text>
       </View>
