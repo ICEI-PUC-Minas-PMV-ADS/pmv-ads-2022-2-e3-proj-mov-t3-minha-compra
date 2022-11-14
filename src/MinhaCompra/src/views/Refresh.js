@@ -1,14 +1,22 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { StyleSheet, View, Image, Text } from "react-native";
+import LottieView from 'lottie-react-native';
 
-export default function Refresh({ navigation }) {
-  useEffect(() => {
-    setTimeout(() => navigation.navigate("Profile"), 1000);
-  }, []);
+export default function Refresh() {
+  const animation = useRef(null);
   return (
     <View style={styles.container}>
-      <Text>REFRESH</Text>
+      <LottieView
+        autoPlay
+        ref={animation}
+        style={{
+          width: 350,
+          height: 350
+        }}
+        // Find more Lottie files at https://lottiefiles.com/featured
+        source={require('../assets/image/loading-animation.json')}
+      />
     </View>
   );
 }

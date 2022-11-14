@@ -19,21 +19,21 @@ export default function Loading({ navigation }) {
       } else {
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
-        
-          signInWithEmailAndPassword(auth, result[0].email, result[0].senha)
-            .then((userCredential) => {
-              console.log("Automatic signed in!");
-              const user = userCredential.user;
-              console.log(user);
-              setTimeout(() => navigation.navigate("Navigation"), 1000);
-            })
-            .catch((error) => {      
-              setTimeout(() => navigation.navigate("Login"), 1000);
-              throw new Error("firebase.login.error: ", error);
-            });
-             
+
+        signInWithEmailAndPassword(auth, result[0]?.email, result[0]?.senha)
+          .then((userCredential) => {
+            console.log("Automatic signed in!");
+            const user = userCredential.user;
+            console.log(user);
+            setTimeout(() => navigation.navigate("Navigation"), 1000);
+          })
+          .catch((error) => {
+            setTimeout(() => navigation.navigate("Login"), 1000);
+            throw new Error("firebase.login.error: ", error);
+          });
+
       }
-    } catch (error) {}
+    } catch (error) { }
   }
 
   useEffect(() => {

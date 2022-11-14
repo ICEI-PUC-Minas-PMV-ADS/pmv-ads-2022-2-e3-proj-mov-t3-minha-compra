@@ -5,6 +5,7 @@ import {
   View,
   TextInput,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 import { consultaUsuario, atualizarUsuario } from "../services/DataService";
 import { getAuth, updatePassword, updateEmail } from "firebase/auth";
@@ -36,9 +37,9 @@ export default function ProfileInput(props) {
   const updateFirestoreDoc = () => {
     const docRef = doc(db, "users", cpf)
     const data = {
-      cpf: cpf,
-      email: email,
+      cpf: props.userData?.cpf,
       nome: nome,
+      email: email,
       senha: senha
     };
     setDoc(docRef, data)
@@ -54,46 +55,68 @@ export default function ProfileInput(props) {
     if (getAuth()?.currentUser?.email !== email) {
       const result = await consultaUsuario();
 
-      updateEmail(getAuth().currentUser, email)
-        .then(() => {
-          console.log(getAuth().currentUser)
-          console.log("Email atualizado no Firebase.")
-        }).catch((error) => {
-          console.log(error)
-        });
+      try {
+        await updateEmail(getAuth().currentUser, email)
 
-      setSenha(result[0].senha)
+        setSenha(result[0].senha)
 
-      await atualizarUsuario({
-        nome: nome,
-        email: email,
-        senha: senha,
-        cpf: cpf,
-      });
+        updateFirestoreDoc()
 
-      return setTimeout(() => props.navigation.navigate("Login"), 1000);
-    } else {
-      updatePassword(getAuth().currentUser, senha)
-      .then(() => {
-        console.log("Senha atualizada com sucesso.")
-      }).catch((error) => {
-        console.log(error)
-      });
+        await atualizarUsuario({
+          nome: nome,
+          email: email,
+          senha: props.userData?.senha,
+          cpf: props.userData?.cpf,
+        })
+
+        props.navigation.navigate("Refresh")
+        return setTimeout(() => props.navigation.navigate("Login"), 1800)
+
+      } catch (e) {
+        if (e.message.includes("auth/invalid-email")) {
+          Alert.alert("Por favor, digite um email válido.")
+        }
+      }
+
+
+    } else if (props.userData?.senha !== senha) {
+      try {
+        await updatePassword(getAuth().currentUser, senha)
+
+        updateFirestoreDoc()
+
+        await atualizarUsuario({
+          nome: nome,
+          email: getAuth()?.currentUser?.email,
+          senha: senha,
+          cpf: cpf,
+        })
+
+        props.navigation.navigate("Refresh")
+        return setTimeout(() => props.navigation.navigate("Login"), 1800)
+       
+      } catch (e) {
+        if (e.message.includes("auth/weak-password")) {
+          Alert.alert("A senha deve ter, pelo menos, 6 caracteres.")
+        }
+      }
+
     }
-
-    updateFirestoreDoc()
 
     await atualizarUsuario({
       nome: nome,
-      email: email,
-      senha: senha,
-      cpf: cpf,
-    });
+      email: props.userData?.email,
+      senha: props.userData?.senha,
+      cpf: props.userData?.cpf,
+    })
 
-    return setTimeout(() => props.navigation.navigate("Login"), 1000);
+    updateFirestoreDoc()
+
+    props.navigation.navigate("Refresh")
+
+    return setTimeout(() => props.navigation.navigate("Profile"), 1500);
+
   }
-
-  const onPress = async () => await handleUpdateFlow()
 
   return (
     <View style={styles.inputArea}>
@@ -111,8 +134,8 @@ export default function ProfileInput(props) {
           <Text style={{ color: "#FFFFFF", fontSize: 65 }}>{props.userData?.nome?.substring(0, 1)}</Text>
         </View>
         <Text style={{ paddingTop: 20, fontSize: 50 }}>{props.userData?.nome}</Text>
-        <Text style={{ paddingTop: 20, fontSize: 15 }}>{props.userData?.email}</Text>
-        <Text style={{ paddingTop: 10, fontSize: 15 }}>{props.userData?.cpf}</Text>
+        <Text style={{ paddingTop: 15, fontSize: 20, color: "#808080" }}>{props.userData?.email}</Text>
+        <Text style={{ paddingTop: 10, fontSize: 15, color: "#808080" }}>{props.userData?.cpf}</Text>
       </View>
 
       <View style={styles.inputBox}>
@@ -171,7 +194,7 @@ export default function ProfileInput(props) {
           />
         </View>
         <View style={{ alignItems: "center" }}>
-          <TouchableOpacity style={styles.button} onPress={onPress}>
+          <TouchableOpacity style={styles.button} onPress={async () => await handleUpdateFlow()}>
             <Text style={{ color: "#FFFFFF" }}>Atualizar</Text>
           </TouchableOpacity>
         </View>

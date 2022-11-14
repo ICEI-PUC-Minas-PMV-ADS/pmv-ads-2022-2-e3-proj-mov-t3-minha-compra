@@ -24,9 +24,8 @@ export default function Profile({ navigation }) {
   useEffect(() => {
     consultaUsuario()
       .then((data) => {
+        console.log(data)
         setUserData(data[0]);
-        console.log("USER DATA >>>>>>>>>>>>>>>>>>>>", userData)
-        
       })
       .catch((e) => console.log("erro: ", e));
   }, [isFocused]);
@@ -39,7 +38,6 @@ export default function Profile({ navigation }) {
 
   return (
     <View style={styles.container}>
-      
       <ProfileInput isFocused={isFocused} navigation={navigation} userData={userData} />
     </View>
   );
