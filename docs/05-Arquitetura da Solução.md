@@ -1,6 +1,6 @@
 # Arquitetura da Solução
 
-<span style="color:red">Pré-requisitos: <a href="3-Projeto de Interface.md"> Projeto de Interface</a></span>
+
 
 Definição de como o software é estruturado em termos dos componentes que fazem parte da solução e do ambiente de hospedagem da aplicação.
 
@@ -20,7 +20,7 @@ O diagrama de classes ilustra graficamente como será a estrutura do software, e
 
 ## Modelo ER
 
-O Modelo ER representa através de um diagrama como as entidades (coisas, objetos) se relacionam entre si na aplicação interativa.]
+O Modelo ER representa através de um diagrama como as entidades (coisas, objetos) se relacionam entre si na aplicação interativa.
 
 ![Modelo ER](img/minha-compra-modeloer.PNG)  
 *Modelo ER*
@@ -40,8 +40,8 @@ O Esquema Relacional corresponde à representação dos dados em tabelas juntame
 
 Scritps SQL e DML:
 
-<li><a href="src/MinhaCompra/src/services/DbServices.js"> Modelo Físico BD</a></li>
-<li><a href="src/MinhaCompra/src/services/DataService.js"> Scripts SQL de DML</a></li>  
+<li><a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e3-proj-mov-t3-minha-compra/blob/main/src/MinhaCompra/src/services/DbServices.js"> Modelo Físico BD</a></li>
+<li><a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e3-proj-mov-t3-minha-compra/blob/main/src/MinhaCompra/src/services/DataService.js"> Scripts SQL de DML</a></li>  
 
 </br>
 
@@ -81,12 +81,12 @@ Explique como a hospedagem e o lançamento da plataforma foi feita.
 De acordo com a norma internacional ISO/IEC 25010, as características e subcaracterísticas de qualidade utilizadas como base para nortear o desenvolvimento deste projeto de software e suas respectivas métricas foram:
 
 1- **Funcionalidade**  
- - *Adequação* : Avalia se o software propõe-se a fazer o que é apropriado. Essa métrica será avalida através da entrega dos requisitos funcionais propostos.
+ - *Adequação* : Avalia se o software propõe-se a fazer o que é apropriado. Essa métrica será avaliada através da entrega dos requisitos funcionais propostos.
  - *Segurança de acesso* : Avalia se é possível o acesso não autorizado a dados. Essa métrica será avaliada através da implementação da autenticação.
 
 2- **Confiabilidade**  
  - *Tolerância a falhas*: Avalia qual a reação decorrente de falhas. Essa métrica será avaliada através dos testes de usabilidade.  
- - *Recuperabilidade*: Avalia se é possível recuperar dados após uma falha. Essa mátrica será avaliada através de monitoramento de uso do app.  
+ - *Recuperabilidade*: Avalia se é possível recuperar dados após uma falha. Essa métrica será avaliada através de monitoramento de uso do app.  
 
 3- **Usabilidade**  
  - *Apreensibilidade*: Avalia se é fácil aprender a usar. Essa métrica será avaliada através de testes de usabilidade.  
@@ -97,10 +97,10 @@ De acordo com a norma internacional ISO/IEC 25010, as características e subcara
 - *Comportamento em relação aos recursos*: Avalia quanto recurso utiliza. Essa métrica será avaliada através de testes de usabilidade. 
     
 5- **Manutenibilidade**  
-- *Modificabilidade*: Avalia se fácil modificar e remover defeitos.Essa métrica será avaliada através da implementação de novas funcionalidades no decorrer do projeto.
-- *Testabilidade*: Avalia se fácil testar quando se faz alterações. Essa métrica será avaliada durante o desenvolvimento através do teste das novas implementações.
+- *Modificabilidade*: Avalia se fácil modificar e remover defeitos. Essa métrica será avaliada através da implementação de novas funcionalidades no decorrer do projeto.
+- *Testabilidade*: Avalia se fácil testar quando se faz alterações. Essa métrica será avaliada durante o desenvolvimento através de testes das novas implementações.
 
 6- **Portabilidade**  
 - *Capacidade para ser instalado*: Avalia se é fácil instalar em outros ambientes. Essa métrica será avaliada após hospedagem em lojas para apps.
-- *Capacidade para substituir*: Avalia se está de acordo com padrões ou convenções de portabilidade.Essa métrica será avaliada após investigação de outros apps que possuam funcionalidades semelhantes.
+- *Capacidade para substituir*: Avalia se está de acordo com padrões ou convenções de portabilidade. Essa métrica será avaliada após investigação de outros apps que possuam funcionalidades semelhantes.
 
