@@ -65,7 +65,6 @@ export default function LoginInput(props) {
             onChangeText={setEmail}
             value={email}
             placeholder="Email"
-            maxLength={20}
           />
         </View>
         <View style={{ flexDirection: "row", alignItems: "center" }}>
