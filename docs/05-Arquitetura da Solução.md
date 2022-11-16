@@ -57,7 +57,7 @@ Scritps SQL e DML:
 | Figma |  Ferramenta de prototipação | 
 | Miro |  Ferramenta de colaboração visual | 
 
-![Relação entre as tecnologias](img/arquiteturaSolucao.PNG)  
+![Relação entre as tecnologias](img/minha-compra-tecnologias.PNG)  
 
 *Relação entre as tecnologias utilizadas*
 
