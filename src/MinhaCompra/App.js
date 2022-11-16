@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { LogBox } from 'react-native';
 
 import Login from "./src/views/Login";
 import Home from "./src/views/Home";
@@ -10,12 +11,15 @@ import Statistic from "./src/views/Statistic";
 import Navigation from "./src/views/Navigation";
 import Exemple from "./src/views/Exemple";
 import Loading from "./src/views/Loading";
+import Profile from "./src/views/Profile";
+import Refresh from "./src/views/Refresh";
 import ModalProduto from "./src/components/ModalProduto";
 import ModalCategoria from "./src/components/ModalCategoria";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -30,6 +34,22 @@ export default function App() {
         <Stack.Screen
           name="Login"
           component={Login}
+          options={{
+            headerShown: false,
+          }}
+        />
+
+        <Stack.Screen
+          name="Refresh"
+          component={Refresh}
+          options={{
+            headerShown: false,
+          }}
+        />
+
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
           options={{
             headerShown: false,
           }}
