@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+} from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import SearchBar from "../components/SearchBar";
 import Lists from "../components/Lists";
@@ -9,10 +15,11 @@ import {
   limparListaDeCompra,
   excluiTodosOsUsuarios,
 } from "../services/DataService";
+import ButtonFab from "../components/ButtonFab";
 
 const Tap = createBottomTabNavigator();
 
-export default function Home() {
+export default function Home({ navigation }) {
   const [defaultLists, setDefaultLists] = useState();
   const [filteredList, setFilteredList] = useState();
 
@@ -88,6 +95,18 @@ export default function Home() {
           })
         )}
       </ScrollView>
+      <TouchableOpacity
+        style={{
+          position: "absolute",
+          width: "100%",
+          height: "100%",
+          justifyContent: "flex-end",
+          alignItems: "flex-end",
+        }}
+        onPress={() => navigation.navigate("Lista")}
+      >
+        <ButtonFab name="plus" size={30} isNewProduct={false} />
+      </TouchableOpacity>
     </View>
   );
 }

@@ -55,16 +55,16 @@ export default function Navigation() {
         }}
       />
 
-      <Tab.Screen
+      {/* <Tab.Screen
         name={"Lista"}
         component={Lista}
-        options={{
-          tabBarLabel: "",
-          tabBarIcon: ({ size }) => (
-            <ButtonFab name="plus" size={size} isNewProduct={false} />
-          ),
-        }}
-      />
+        // options={{
+        //   tabBarLabel: "",
+        //   tabBarIcon: ({ size }) => (
+
+        //   ),
+        // }}
+      /> */}
     </Tab.Navigator>
   );
 }

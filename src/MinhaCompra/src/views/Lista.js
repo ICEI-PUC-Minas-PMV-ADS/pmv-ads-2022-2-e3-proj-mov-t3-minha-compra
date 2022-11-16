@@ -1,45 +1,83 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, Button } from 'react-native';
-import NewProductAtList from '../components/NewProductAtList';
-import ButtonFab from '../components/ButtonFab';
-import HeaderAndReturnArrow from '../components/HeaderAndReturnArrow';
+import { StatusBar } from "expo-status-bar";
+import React, { useState, useEffect } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  Button,
+  FlatList,
+} from "react-native";
+import NewProductAtList from "../components/NewProductAtList";
+import { consultaListaDeProduto } from "../services/DataService";
+import ButtonFab from "../components/ButtonFab";
 
 export default function Lista({ navigation }) {
-  const [product, setProduct] = useState()
+  const [productList, setProductList] = useState([]);
 
   useEffect(() => {
     //chamada no banco
-    const products = [
-      { id: 0, nome: "banana", quantidade: 2, preco: "2,90" },
-      { id: 1, nome: "leite", quantidade: 1, preco: "4,90" },
-      { id: 2, nome: "sabonete", quantidade: 5, preco: "1,90" },
-    ];
-
-    setProduct(products);
+    // const products = [
+    //   { id: 0, nome: "banana", quantidade: 2, preco: "2,90" },
+    //   { id: 1, nome: "leite", quantidade: 1, preco: "4,90" },
+    //   { id: 2, nome: "sabonete", quantidade: 5, preco: "1,90" },
+    // ];
+    consultaListaDeProduto().then((products) => setProductList(products));
   }, []);
+
+  const Item = ({ product }) => (
+    <NewProductAtList
+      // key={1}
+      product={product?.nome}
+      quantity={product?.quantidade}
+      value={product?.preco}
+    />
+  );
+
+  const renderItem = ({ item }) => (
+    <View>
+      <Item product={item} />
+    </View>
+  );
 
   return (
     <View style={styles.container}>
-      <HeaderAndReturnArrow navigation={navigation} title='Criar nova lista' />
+      <Text style={{ marginTop: 40, fontSize: 20, marginBottom: 20 }}>
+        Lista de Produto
+      </Text>
+      <FlatList
+        style={{ width: "100%" }}
+        data={productList}
+        renderItem={renderItem}
+      />
 
-      {product && (product[0] === false ?
+      <TouchableOpacity
+        style={{
+          // position: "absolute",
+          width: "100%",
+          // height: "100%",
+          justifyContent: "flex-end",
+          alignItems: "flex-end",
+          marginTop: 10,
+        }}
+        onPress={() => navigation.navigate("Produto")}
+      >
+        <ButtonFab name="plus" size={30} isNewProduct={false} />
+      </TouchableOpacity>
 
-        <View style={styles.noProductsView}>
-          <Text style={{ fontSize: 13 }}>Clique no ícone "<Text style={styles.plusIcon}>+</Text>" abaixo para criar uma lista <Text style={{ color: '#FA4A0C', fontWeight: '900' }}>;)</Text></Text>
-        </View>
-
-        :
-
-        product.map((product) => {
-          return (
-            <NewProductAtList key={product.id} product={product.nome} quantity={product.quantidade} value={product.preco} />
-          )
-        })
-
-      )
-      }
-
+      <View
+        style={{
+          borderTopColor: "#000000",
+          borderTopWidth: 1,
+          width: "100%",
+          marginBottom: 30,
+          flexDirection: "row",
+          justifyContent: "space-between",
+        }}
+      >
+        <Text style={{ fontSize: 20, marginTop: 20 }}>TOTAL: R$ {"0,00"}</Text>
+      </View>
     </View>
   );
 }
@@ -47,18 +85,18 @@ export default function Lista({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    marginHorizontal: 20
+    alignItems: "center",
+    marginHorizontal: 20,
   },
   titleText: {
     fontSize: 15,
     marginTop: 20,
-    marginBottom: 12
+    marginBottom: 12,
   },
   noProductsView: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     marginHorizontal: 20,
-    marginTop: '80%'
-  }
+    marginTop: "80%",
+  },
 });
