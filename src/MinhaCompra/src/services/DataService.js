@@ -1,6 +1,5 @@
 import Database from "./DbServices";
 import { defaultData } from "../assets/data/default_data";
-import { exp } from "react-native/Libraries/Animated/Easing";
 
 const DB_EXEC = Database.getConnection();
 
@@ -51,6 +50,15 @@ export const excluiTodosOsUsuarios = async () => {
 export const consultaUsuario = async () => {
   let results = await DB_EXEC("select * from usuario");
   return results.rows._array;
+};
+
+export const atualizarUsuario = async (param) => {
+  // console.log("param >>>>>>>>>>>>>>> ", param);
+  let results = await DB_EXEC(
+    "update usuario set nome=?,email=?,senha=? where cpf=?",
+    [param.nome, param.email, param.senha, param.cpf]
+  );
+  return results.rowsAffected;
 };
 
 export const consultaProdutoCadastro = async () => {
