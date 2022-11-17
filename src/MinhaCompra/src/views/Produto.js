@@ -59,7 +59,6 @@ export default function Produto({ route, navigation }) {
           preco: totalValue.toString(),
           quantidade: qtd.toString(),
         });
-        Alert.alert("Produto cadastrado com sucesso!!!");
         console.log("produto salvo com sucesso no banco local...");
         navigation.navigate("Lista");
       } catch (error) {

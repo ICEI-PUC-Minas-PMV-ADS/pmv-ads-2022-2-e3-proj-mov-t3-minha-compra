@@ -35,7 +35,7 @@ export default function Navigation() {
 
       <Tab.Screen
         name={"Profile"}
-        component={Produto}
+        component={Profile}
         options={{
           tabBarLabel: "",
           tabBarIcon: ({ size, color }) => (
