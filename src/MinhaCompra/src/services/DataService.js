@@ -19,9 +19,10 @@ export const criaCategoria = async (param) => {
 };
 
 export const criaListaDeProduto = async (param) => {
+  console.log("params: ", param);
   let results = await DB_EXEC(
-    "insert into lista_produto(id_produto, preco, quantidade) values (?,?,?)",
-    [param.id_produto, param.preco, param.quantidade]
+    "insert into lista_produto(categoria, nome , preco, quantidade) values (?,?,?,?)",
+    [param.categoria, param.nome, param.preco, param.quantidade]
   );
   return results.rowsAffected;
 };
@@ -72,6 +73,11 @@ export const consultaCategoria = async () => {
 
 export const consultaListaDeProduto = async () => {
   let results = await DB_EXEC("select * from lista_produto");
+  return results.rows._array;
+};
+
+export const deletaProdutos = async () => {
+  let results = await DB_EXEC("drop table lista_produto");
   return results.rows._array;
 };
 
