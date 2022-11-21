@@ -2,7 +2,7 @@
 
 
 
-## - *O aplicativo deve permitir ao usuário cadastrar/atualizar sua conta (RF-001)* 
+## - *O aplicativo deve permitir ao usuário cadastrar,atualizar e visualizar os seus dados. (RF-001)* 
 ![Cadastrar perfil usuário](img/tela-cadastrar.jpg)  
 ### - A tela de cadastro será exibida após tela de carregamento, sendo exibido os campos para preenchimento com os dados do usuário.  
 ### - Após clicar em **Cadastrar**, o usuário terá sua conta salva no banco de dados do Firebase (Firestore) e seus dados poderão ser utilizados na aba **Entrar** para ter acesso ao aplicativo.  
@@ -113,9 +113,64 @@
 </br>
 
 
-## - *O aplicativo deve permitir ao usuário cadastrar listas de compras. (RF-003)* 
+## - *O aplicativo deve permitir ao usuário cadastrar novas listas, assim como visualizar, alterar e excluir as listas de compras anteriores. (RF-003)* 
+![Cadastrar lista](img/lista.jpg)  
+
+### - A tela de *Lista* será exibida após clique no botão '+' no canto da tela principal. 
+### - Após escolha dos produtos, o usuário poderá alterar os itens clicando sobre o campo de cada item contido na lista, e até mesmo deletá-lo utilizando o botão 'lixeira'.  
+</br>
+
+![Visualizar listas](img/minhasListas.jpg)  
+
+### - A tela de *Minhas Listas* será exibida após clique no botão 'home' no canto esquerdo da tela principal. 
+### - Através da caixa de pesquisa a lista desejada pode ser encontrada pelo nome escolhido anteriormente.  
+</br>
+
+### ***Requisitos atendidos***  
+- RF-003 
+</br>
+
+### ***Artefatos criados***
+**Views**  
+<li><a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e3-proj-mov-t3-minha-compra/blob/develop/src/MinhaCompra/src/views/Home.js"> Home</a></li>
+<li><a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e3-proj-mov-t3-minha-compra/blob/develop/src/MinhaCompra/src/views/Lista.js"> Lista</a></li>
+</br>
+
+**Componentes**
+<li><a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e3-proj-mov-t3-minha-compra/blob/develop/src/MinhaCompra/src/components/NewProductAtList.js"> NewProductAtList</a></li>
+<li><a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e3-proj-mov-t3-minha-compra/blob/develop/src/MinhaCompra/src/components/SearchBar.js"> SearchBar</a></li>
+</br>
+
+**Services**
+<li><a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e3-proj-mov-t3-minha-compra/blob/develop/src/MinhaCompra/src/services/DataService.js"> DataService</a></li>
+<li><a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e3-proj-mov-t3-minha-compra/blob/develop/src/MinhaCompra/src/services/DbServices.js"> DbServices</a></li>
+</br>
+
+### ***Instruções de acesso Minhas Listas***  
+1- Acesse a tela inicial do aplicativo;  
+2- Clique no ícone *Home*;  
+3- Acesse suas listas cadastradas.
+</br>
+
+### ***Instruções de acesso Lista***  
+1- Acesse a tela inicial do aplicativo  
+2- Clique no botão '+';  
+3- Preencha o *Produto* e clique em *Adicionar*;  
+4- Retorne para a *Lista* para visualizar o novo produto.  
+</br>
+
+
+<p align="center">
+    <img width="300" height="750" src="img/listas.gif">
+</p>
+</br>
+
+
 ## - *O aplicativo deve permitir ao usuário cadastrar, visualizar, atualizar e deletar os itens de sua lista de compras. (RF-004)*    
 </br>
+
+
+
 
 ## - *O aplicativo deve permitir ao usuário cadastrar informações de produtos. (RF-005)*
 ## - *O aplicativo deve permitir ao usuário cadastrar, visualizar e atualizar o preço dos produtos. (RF-006)*  
@@ -126,12 +181,12 @@
 
 ![Cadastrar tipo produto ](img/tela-tipo-produto.jpg)  
 ### - A partir do modal *tipo*, este pode ser selecionado pelo usuário.  
-### - Esses tipos estão contidos em uma base de dados Sqlite.
+### - Esses tipos estão contidos na base de dados Sqlite.
 </br>
 
 ![Cadastrar categoria produto ](img/tela-categoria-produto.jpg)  
 ### - A partir do modal *categoria*, esta pode ser selecionado pelo usuário.  
-### - Essas categorias estão contidos em uma base de dados Sqlite.
+### - Essas categorias estão contidos na base de dados Sqlite.
 </br>
 
 ### ***Requisitos atendidos***  
@@ -153,11 +208,11 @@
 </br>
 
 ### ***Instruções de acesso Cadastrar***  
-1- Acesse a aba Produto do aplicativo  
-2- Clique na aba *tipo* e selecione um setor  
-3- Clique na aba *categoria* e selecione um nome  
-4- Preencha o **preço** e a **quantidade** *(ajustável através dos botões '+' e '-')*  
-5- Confira o total calculado pelo app  
+1- Acesse a aba Produto do aplicativo;  
+2- Clique na aba *tipo* e selecione um setor;  
+3- Clique na aba *categoria* e selecione um nome; 
+4- Preencha o **preço** e a **quantidade** *(ajustável através dos botões '+' e '-')*;  
+5- Confira o total calculado pelo app;  
 6- Clique no botão *Adicionar* para o produto fazer parte de sua lista de compras.  
 </br>
 
@@ -169,6 +224,4 @@
 </br>
 
 
-
-## - *O aplicativo deve exibir o último preço cadastrado na base de usuários.  (RF-007)*  
-## - *O aplicativo deve exibir um comparativo de preço entre as compras. (RF-008)*    
+## - *O aplicativo deve exibir um comparativo de preço entre as compras. (RF-008)* !ESTATÍSTICAS! 
