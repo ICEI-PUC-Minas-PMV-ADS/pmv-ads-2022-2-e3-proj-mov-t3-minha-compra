@@ -76,8 +76,14 @@ export const consultaListaDeProduto = async () => {
   return results.rows._array;
 };
 
-export const deletaProdutos = async () => {
+export const deletaTodosProdutos = async () => {
   let results = await DB_EXEC("drop table lista_produto");
+  return results.rows._array;
+};
+
+export const deletaProduto = async (id) => {
+  console.log("exclindo....");
+  let results = await DB_EXEC("delete from lista_produto where id =?", [id]);
   return results.rows._array;
 };
 

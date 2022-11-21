@@ -31,9 +31,8 @@ export default function Loading({ navigation }) {
             setTimeout(() => navigation.navigate("Login"), 1000);
             throw new Error("firebase.login.error: ", error);
           });
-
       }
-    } catch (error) { }
+    } catch (error) {}
   }
 
   useEffect(() => {
