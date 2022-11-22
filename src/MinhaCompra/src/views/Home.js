@@ -24,24 +24,6 @@ export default function Home({ navigation }) {
   const [filteredList, setFilteredList] = useState();
 
   useEffect(() => {
-    // excluiTodosOsUsuarios().then(() => console.log("excluiu"));
-    // const mockedLists = [
-    //   { id: 0, id_produto: 234, valor_total: 50.00, cpf: 43205987654, nome_lista: 'Março' },
-    //   { id: 1, id_produto: 2343, valor_total: 55.00, cpf: 12305987654, nome_lista: 'Abril' },
-    //   { id: 2, id_produto: 23232, valor_total: 60.00, cpf: 22305987654, nome_lista: 'Maio' },
-    // ];
-
-    // criaListaDeCompra({
-    //   id_produto: 2,
-    //   valor_total: 10.0,
-    //   cpf: 40028922,
-    //   nome_lista: "Junho"
-    // })
-    //   .then((dados) => {
-    //     console.log(dados);
-    //   })
-    //   .catch((e) => console.log("error:", e));
-
     consultaListaDeCompra()
       .then((dados) => {
         console.log(dados);

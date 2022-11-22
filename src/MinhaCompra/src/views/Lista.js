@@ -47,10 +47,6 @@ export default function Lista({ navigation }) {
     />
   );
 
-  // const changeRefresh = (status) => {
-  //   setRefresh(status);
-  // };
-
   const renderItem = ({ item }) => (
     <View>
       <Item product={item} />
@@ -65,12 +61,8 @@ export default function Lista({ navigation }) {
       }}
     >
       <View style={styles.container}>
-        <Text style={{ marginTop: 40, fontSize: 20, marginBottom: 20 }}>
-          Lista de Produto
-        </Text>
-
         <FlatList
-          style={{ width: "100%" }}
+          style={{ width: "100%", marginTop: 10 }}
           data={productList}
           renderItem={renderItem}
         />
