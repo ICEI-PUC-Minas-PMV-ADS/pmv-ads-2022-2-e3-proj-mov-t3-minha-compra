@@ -10,17 +10,23 @@ import {
   Alert,
 } from "react-native";
 import Mail from "../assets/image/arrow.svg";
-import { criaListaDeProduto } from "../services/DataService";
+import {
+  atualizaLista,
+  consultaLista,
+  criaListaDeProduto,
+} from "../services/DataService";
 
 export default function Produto({ route, navigation }) {
   const catName = route?.params?.categoria;
   const prodName = route?.params?.produto;
+  const listData = route?.params?.data;
 
   const [qtd, setQTD] = useState("");
   const [preco, setPreco] = useState("");
   const [totalValue, setTotal] = useState(currencyFormat(0));
 
   useEffect(() => {
+    console.log("listData", listData);
     calcTotal();
   }, [preco, qtd]);
 
@@ -53,14 +59,27 @@ export default function Produto({ route, navigation }) {
 
     if (valid) {
       try {
-        await criaListaDeProduto({
+        let listas = await consultaLista();
+        let currentList = listas.find((lista) => lista.id === listData.id);
+        let produtos = JSON.parse(currentList.produtos);
+        produtos.push({
           nome: prodName,
           categoria: catName,
           preco: totalValue.toString(),
           quantidade: qtd.toString(),
         });
+
+        console.log("produtos", produtos);
+
+        await atualizaLista({
+          id: listData.id,
+          nome: listData.nome,
+          produtos: JSON.stringify(produtos),
+          total: "ok",
+        });
+
         console.log("produto salvo com sucesso no banco local...");
-        navigation.navigate("Lista");
+        navigation.navigate("Lista", { data: listData });
       } catch (error) {
         Alert.alert("Falha ao cadastrar produto :(");
         console.log("cadastraProduto.error: ", error);
@@ -114,7 +133,7 @@ export default function Produto({ route, navigation }) {
 
         <TouchableOpacity
           style={styles.comboBox}
-          onPress={() => navigation.navigate("MCategoria")}
+          onPress={() => navigation.navigate("MCategoria", { data: listData })}
         >
           <View
             style={{
@@ -134,6 +153,7 @@ export default function Produto({ route, navigation }) {
           onPress={() =>
             navigation.navigate("MProduto", {
               categoria: catName.toLowerCase(),
+              data: listData,
             })
           }
           disabled={!catName}

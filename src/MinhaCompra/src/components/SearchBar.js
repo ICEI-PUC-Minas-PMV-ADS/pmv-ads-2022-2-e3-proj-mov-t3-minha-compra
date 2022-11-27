@@ -1,42 +1,40 @@
 import React, { useState } from "react";
 import { StyleSheet, View, TextInput, Image } from "react-native";
 
-export default function SearchBar({onChangeText}) {
-
+export default function SearchBar({ onChangeText }) {
   return (
     <View style={styles.container}>
       <Image
         source={require("../assets/image/search-icon.png")}
         style={{ left: -3 }}
-      >
-      </Image>
+      ></Image>
 
       <TextInput
-        style={{ width: '85%', marginLeft: 3 }}
+        style={{ width: "85%", marginLeft: 3 }}
         onChangeText={onChangeText}
         maxLength={30}
       />
-
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#FFF',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#FFF",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
     marginBottom: 12,
     paddingVertical: 6,
     paddingHorizontal: 5,
     borderRadius: 50,
-    width: '100%',
+    width: "100%",
     shadowOffset: { width: 10, height: 10 },
-    shadowColor: 'black',
+    shadowColor: "black",
     shadowOpacity: 1,
     elevation: 9,
-  }
+    marginTop: 80,
+  },
 });
 
-export const getFilteredLists = () => filteredList
+export const getFilteredLists = () => filteredList;

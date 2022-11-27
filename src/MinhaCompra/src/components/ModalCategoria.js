@@ -11,11 +11,14 @@ import {
 import SearchBar from "../components/SearchBar";
 import { defaultData } from "../assets/data/default_data";
 
-export default function ModalCategoria({ navigation }) {
+export default function ModalCategoria({ navigation, route }) {
+  const listData = route?.params?.data;
   const [data, setData] = useState(defaultData);
   const [filteredList, setFilteredList] = useState();
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    console.log("ModalCategoria.listData: ", listData);
+  }, []);
 
   const searchFilterFunction = async (text) => {
     if (text) {
@@ -57,7 +60,10 @@ export default function ModalCategoria({ navigation }) {
   };
 
   const select = (value) => {
-    navigation.navigate("Produto", { categoria: capitalize(value) });
+    navigation.navigate("Produto", {
+      categoria: capitalize(value),
+      data: listData,
+    });
   };
 
   return (

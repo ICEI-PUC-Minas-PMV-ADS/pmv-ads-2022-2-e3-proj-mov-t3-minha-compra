@@ -35,6 +35,32 @@ export const criaListaDeCompra = async (param) => {
   return results.rows._array;
 };
 
+export const criaLista = async (param) => {
+  let results = await DB_EXEC(
+    "insert into lista(nome, produtos, total) values (?,?,?)",
+    [param.nome, param.produtos, param.total]
+  );
+  return results.rowsAffected;
+};
+
+export const consultaLista = async () => {
+  let results = await DB_EXEC("select * from lista");
+  return results.rows._array;
+};
+
+export const atualizaLista = async (param) => {
+  let results = await DB_EXEC(
+    "update lista set nome=?, produtos=?, total=? where id=?",
+    [param.nome, param.produtos, param.total, param.id]
+  );
+  return results.rowsAffected;
+};
+
+export const excluiTodasAsListas = async () => {
+  let results = await DB_EXEC(" DELETE from lista");
+  return results.rows._array;
+};
+
 export const inserirUsuario = async (param) => {
   let results = await DB_EXEC(
     "insert into usuario(cpf, nome , email, senha) values (?,?,?,?)",

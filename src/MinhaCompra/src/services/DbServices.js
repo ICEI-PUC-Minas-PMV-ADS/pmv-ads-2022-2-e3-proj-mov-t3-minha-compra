@@ -20,6 +20,10 @@ export const Database = {
       tx.executeSql(
         "create table if not exists lista_compra (id integer primary key not null, id_produto integer not null, valor_total real not null, cpf integer not null, nome_lista text not null);"
       );
+
+      tx.executeSql(
+        "create table if not exists lista (id integer primary key not null, nome text not null, produtos text not null, total text not null);"
+      );
     });
 
     const ExecuteQuery = (sql, params = []) =>

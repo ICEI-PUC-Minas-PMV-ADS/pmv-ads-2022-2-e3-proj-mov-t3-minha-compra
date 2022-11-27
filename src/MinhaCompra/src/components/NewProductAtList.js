@@ -42,7 +42,9 @@ export default function NewProductAtList({
 
         <View style={styles.quantityAndValue}>
           <Text style={{ fontSize: 12 }}>Valor</Text>
-          <Text style={styles.quantityAndValueNumber}>R${value}</Text>
+          <Text style={styles.quantityAndValueNumber}>
+            R${parseInt(value).toFixed(2)}
+          </Text>
         </View>
       </View>
       <View style={{ width: "15%" }}>

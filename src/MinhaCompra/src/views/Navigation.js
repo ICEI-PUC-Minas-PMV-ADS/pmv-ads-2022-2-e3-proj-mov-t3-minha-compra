@@ -27,6 +27,7 @@ export default function Navigation() {
         component={Home}
         options={{
           tabBarLabel: "",
+          headerShown: false,
           tabBarIcon: ({ size, color }) => (
             <Entypo name="home" size={size} color={color} />
           ),

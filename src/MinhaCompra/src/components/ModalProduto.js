@@ -13,6 +13,7 @@ import { defaultData } from "../assets/data/default_data";
 
 export default function ModalProduto({ route, navigation }) {
   const catName = route?.params?.categoria;
+  const listData = route?.params?.data;
 
   const [data, setData] = useState([]);
   const [filteredList, setFilteredList] = useState();
@@ -67,6 +68,7 @@ export default function ModalProduto({ route, navigation }) {
     navigation.navigate("Produto", {
       produto: capitalize(value),
       categoria: capitalize(catName),
+      data: listData,
     });
   };
 
