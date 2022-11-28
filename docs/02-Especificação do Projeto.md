@@ -65,7 +65,7 @@ O escopo funcional do projeto é definido por meio dos requisitos funcionais que
 |------|-----------------------------------------|----|
 |RF-001| O aplicativo deve permitir ao usuário cadastrar,atualizar e visualizar os seus dados | ALTA | 
 |RF-002| O aplicativo deve permitir ao usuário logar/deslogar da conta.   | ALTA |
-|RF-003| O aplicativo deve permitir ao usuário cadastrar novas listas, assim como visualizar, alterar e excluir as listas de compras anteriores.   | ALTA |
+|RF-003| O aplicativo deve permitir ao usuário cadastrar novas listas, assim como visualizar e alterar as listas de compras anteriores.   | ALTA |
 |RF-004| O aplicativo deve permitir ao usuário cadastrar, visualizar, atualizar e deletar os itens de sua lista de compras.   | ALTA |
 |RF-005| O aplicativo deve permitir ao usuário cadastrar informações de produtos.   | ALTA |
 |RF-006| O aplicativo deve permitir ao usuário cadastrar, visualizar e atualizar o preço dos produtos.   | ALTA |
