@@ -113,11 +113,13 @@
 </br>
 
 
-## - *O aplicativo deve permitir ao usuário cadastrar novas listas, assim como visualizar, alterar e excluir as listas de compras anteriores. (RF-003)* 
-![Cadastrar lista](img/lista.jpg)  
+## - *O aplicativo deve permitir ao usuário cadastrar novas listas, assim como visualizar, alterar e excluir as listas de compras anteriores. (RF-003)*  
+![Cadastrar lista](img/cadastrarNovaLista.jpg) 
+![Cadastrar lista](img/adicionarItensNovaLista.jpg) 
 
-### - A tela de *Lista* será exibida após clique no botão '+' no canto da tela principal. 
-### - Após escolha dos produtos, o usuário poderá alterar os itens clicando sobre o campo de cada item contido na lista, e até mesmo deletá-lo utilizando o botão 'lixeira'.  
+### - A tela de *Lista* será exibida após clique no botão '+' no canto da tela principal.  
+
+### - Após definição do *Nome da lista*, e adicionados os *produtos*, o usuário poderá alterar os itens clicando sobre o campo de cada item contido na lista, e até mesmo deletá-lo utilizando o botão 'lixeira'.  
 </br>
 
 ![Visualizar listas](img/minhasListas.jpg)  
@@ -155,8 +157,10 @@
 ### ***Instruções de acesso Lista***  
 1- Acesse a tela inicial do aplicativo  
 2- Clique no botão '+';  
-3- Preencha o *Produto* e clique em *Adicionar*;  
-4- Retorne para a *Lista* para visualizar o novo produto.  
+3- Insira o *Nome da lista* e clique em *Criar*;  
+4- Selecione o *Produto* e clique em *Adicionar*;  
+5- Retorne em *Lista* para visualizar os produtos adicionados.  
+6- Clique em *Salvar* para finalizar a lista e acesar demais listas cadastradas. 
 </br>
 
 
@@ -164,9 +168,55 @@
     <img width="300" height="750" src="img/listas.gif">
 </p>
 </br>
+</br>
+
+<p align="center">
+    <img width="300" height="750" src="img/cadastrarLista.gif">
+</p>
+</br>
 
 
 ## - *O aplicativo deve permitir ao usuário cadastrar, visualizar, atualizar e deletar os itens de sua lista de compras. (RF-004)*    
+![Itens Lista](img/itensLista.jpg)  
+### - A tela de *Lista de compras* é onde visualizamos os itens adicionados na tela *Produto*.
+### - A partir do ícone de *lixeira* o produto é deletado da lista.
+### - Caso deseja atualizar o produto, ao clicar acima do seu card, será direcionado à tela de *Produto*.
+</br>
+
+### ***Requisitos atendidos***  
+- RF-004 
+</br>
+
+### ***Artefatos criados***
+**Views**  
+<li><a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e3-proj-mov-t3-minha-compra/blob/develop/src/MinhaCompra/src/views/Lista.js"> Lista</a></li>
+</br>
+
+**Componentes**
+<li><a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e3-proj-mov-t3-minha-compra/blob/develop/src/MinhaCompra/src/components/NewProductAtList.js"> NewProductAtList</a></li>
+<li><a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e3-proj-mov-t3-minha-compra/blob/develop/src/MinhaCompra/src/components/Lists.js"> Lists</a></li>
+</br>
+
+**Services**
+<li><a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e3-proj-mov-t3-minha-compra/blob/develop/src/MinhaCompra/src/services/DataService.js"> DataService</a></li>
+</br>
+
+### ***Instruções de acesso Itens da Lista de compras***  
+1- Acesse a tela inicial do aplicativo  
+2- Clique no botão '+';  
+3- Insira o *Nome da lista* e clique em *Criar*;  
+4- Selecione o *Produto* e clique em *Adicionar*;  
+5- Retorne em *Lista de compras* para visualizar os produtos adicionados.  
+6- Para deletar o produto, clique no ícone de *lixeira*.  
+7- Para atualizar o item, clique sobre o produto e altere o que desejar.  
+8- Clique em *Adicionar* para salvar alteração.
+</br>
+
+
+
+<p align="center">
+    <img width="300" height="700" src="img/adicionarItemLista.gif">
+</p>
 </br>
 
 
@@ -210,7 +260,7 @@
 ### ***Instruções de acesso Cadastrar***  
 1- Acesse a aba Produto do aplicativo;  
 2- Clique na aba *tipo* e selecione um setor;  
-3- Clique na aba *categoria* e selecione um nome; 
+3- Clique na aba *categoria* e selecione um nome;  
 4- Preencha o **preço** e a **quantidade** *(ajustável através dos botões '+' e '-')*;  
 5- Confira o total calculado pelo app;  
 6- Clique no botão *Adicionar* para o produto fazer parte de sua lista de compras.  
@@ -223,5 +273,3 @@
 </p>
 </br>
 
-
-## - *O aplicativo deve exibir um comparativo de preço entre as compras. (RF-008)* !ESTATÍSTICAS! 
