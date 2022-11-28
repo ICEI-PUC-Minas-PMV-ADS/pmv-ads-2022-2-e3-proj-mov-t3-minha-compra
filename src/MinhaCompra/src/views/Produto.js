@@ -257,7 +257,7 @@ export default function Produto({ route, navigation }) {
         <Text style={{ marginTop: 10, fontSize: 20 }}>
           TOTAL: R${" "}
           {parseInt(preco) > 0 && qtd > 0
-            ? `${totalValue}`
+            ? `${currencyFormat(totalValue)}`
             : "0,00"}
         </Text>
 

@@ -34,8 +34,13 @@ export default function Lista({ navigation, route }) {
     productList.forEach((product) => {
       totalValue += parseFloat(product.preco);
     });
-    return totalValue.toString() || null;
+   
+    return currencyFormat(totalValue) || null;
   };
+
+  function currencyFormat(num) {
+    return num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+  }
 
   useEffect(() => {
     //console.log(">>>>>> listdata", productList);
@@ -99,7 +104,7 @@ export default function Lista({ navigation, route }) {
           }}
         >
           <Text style={{ fontSize: 20, marginTop: 33 }}>
-            TOTAL: R$ {parseFloat(changeTotalPrice()) || ''}
+            TOTAL: R$ {changeTotalPrice() || ''}
           </Text>
 
           <TouchableOpacity

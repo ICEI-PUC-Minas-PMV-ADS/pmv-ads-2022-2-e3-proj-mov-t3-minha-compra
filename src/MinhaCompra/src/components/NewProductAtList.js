@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
 import ButtonFab from "./ButtonFab";
 import Trash from "../assets/image/trash.svg";
@@ -37,7 +37,7 @@ export default function NewProductAtList({
         produtos: JSON.stringify(newProductList),
         total: "ok",
       }).then(() => {
-        return navigation.navigate("Home")
+       context.changeRefresh(!context.refresh);
       })
       .catch(e => console.log(e))
 
@@ -45,6 +45,10 @@ export default function NewProductAtList({
       console.log("deleteProduct.error: ", error);
     }
   };
+
+  function currencyFormat(num) {
+    return num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+  }
 
   return (
     <View style={styles.container}>
@@ -55,7 +59,6 @@ export default function NewProductAtList({
           justifyContent: 'space-between',
           width: "85%",
         }}
-        onPress={() => console.log(context)}
       >
         <Text style={styles.listTitle}>{product}</Text>
 
@@ -67,7 +70,7 @@ export default function NewProductAtList({
         <View style={styles.quantityAndValue}>
           <Text style={{ fontSize: 12 }}>Valor</Text>
           <Text style={styles.quantityAndValueNumber}>
-            R${value.toString().includes(".") ? value : `${value}.00`}
+            R${currencyFormat(parseFloat(value))}
           </Text>
         </View>
       </View>
