@@ -113,13 +113,13 @@
 </br>
 
 
-## - *O aplicativo deve permitir ao usuário cadastrar novas listas, assim como visualizar, alterar e excluir as listas de compras anteriores. (RF-003)*  
+## - *O aplicativo deve permitir ao usuário cadastrar novas listas, assim como visualizar e alterar as listas de compras anteriores. (RF-003)*  
 ![Cadastrar lista](img/cadastrarNovaLista.jpg) 
 ![Cadastrar lista](img/adicionarItensNovaLista.jpg) 
 
 ### - A tela de *Lista* será exibida após clique no botão '+' no canto da tela principal.  
 
-### - Após definição do *Nome da lista*, e adicionados os *produtos*, o usuário poderá alterar os itens clicando sobre o campo de cada item contido na lista, e até mesmo deletá-lo utilizando o botão 'lixeira'.  
+### - Após definição do *Nome da lista*, e adicionados os *produtos*, o usuário poderá alterar os itens clicando sobre o campo de cada item contido na lista, e até mesmo deletá-lo utilizando o botão *lixeira*.  
 </br>
 
 ![Visualizar listas](img/minhasListas.jpg)  
@@ -178,8 +178,8 @@
 
 ## - *O aplicativo deve permitir ao usuário cadastrar, visualizar, atualizar e deletar os itens de sua lista de compras. (RF-004)*    
 ![Itens Lista](img/itensLista.jpg)  
-### - A tela de *Lista de compras* é onde visualizamos os itens adicionados na tela *Produto*.
-### - A partir do ícone de *lixeira* o produto é deletado da lista.
+### - A tela de *Lista de compras* é onde o usuário visualiza os itens adicionados na tela *Produto*.
+### - A partir do botão *lixeira* o produto é deletado da lista.
 ### - Caso deseja atualizar o produto, ao clicar acima do seu card, será direcionado à tela de *Produto*.
 </br>
 
@@ -207,7 +207,7 @@
 3- Insira o *Nome da lista* e clique em *Criar*;  
 4- Selecione o *Produto* e clique em *Adicionar*;  
 5- Retorne em *Lista de compras* para visualizar os produtos adicionados.  
-6- Para deletar o produto, clique no ícone de *lixeira*.  
+6- Para deletar o produto, clique no botão *lixeira*.  
 7- Para atualizar o item, clique sobre o produto e altere o que desejar.  
 8- Clique em *Adicionar* para salvar alteração.
 </br>
@@ -225,7 +225,7 @@
 ## - *O aplicativo deve permitir ao usuário cadastrar informações de produtos. (RF-005)*
 ## - *O aplicativo deve permitir ao usuário cadastrar, visualizar e atualizar o preço dos produtos. (RF-006)*  
 ![Cadastrar produto](img/tela-produto.jpg)  
-### - A tela de cadastro de produto é onde definimos o *tipo* do produto e sua *categoria*. 
+### - A tela de cadastro de produto é onde o usuário define o *tipo* do produto e sua *categoria*. 
 ### - O *preço* e sua *quantidade* podem ser definidos e o *total* é atualizado conforme cálculo do aplicativo.
 </br>
 
