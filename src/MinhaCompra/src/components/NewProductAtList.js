@@ -2,33 +2,57 @@ import React, { useState, useContext } from "react";
 import { StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
 import ButtonFab from "./ButtonFab";
 import Trash from "../assets/image/trash.svg";
-import { deletaProduto } from "../services/DataService";
+import { deletaProduto, atualizaLista, consultaLista } from "../services/DataService";
 import AppContext from "../views/AppContext";
 
 export default function NewProductAtList({
   product,
   quantity,
   value,
-  id,
-  navigation,
+  currentList,
+  navigation
 }) {
-  const [newProductList, setNewProductList] = useState(product);
   const context = useContext(AppContext);
+  const [currentArray, setCurrentArray] = useState()
+
   const deleteProduct = async () => {
+
     try {
-      await deletaProduto(id);
-      context.changeRefresh(!context.refresh);
+
+      const currentObject = JSON.parse(currentList.produtos).find(currentProduct => currentProduct.nome === product)
+      console.log(currentObject)
+
+      const newProductList = []
+
+      for(let i = 0; i < JSON.parse(currentList.produtos).length; i++) {
+
+        if(JSON.parse(currentList.produtos)[i].nome !== currentObject.nome) {
+          newProductList.push(JSON.parse(currentList.produtos)[i])
+        }
+      }
+
+      await atualizaLista({
+        id: currentList.id,
+        nome: currentList.nome,
+        produtos: JSON.stringify(newProductList),
+        total: "ok",
+      }).then(() => {
+        return navigation.navigate("Home")
+      })
+      .catch(e => console.log(e))
+
     } catch (error) {
       console.log("deleteProduct.error: ", error);
     }
   };
+
   return (
     <View style={styles.container}>
       <View
         style={{
           flexDirection: "row",
           alignItems: "center",
-          justifyContent: "space-evenly",
+          justifyContent: 'space-between',
           width: "85%",
         }}
         onPress={() => console.log(context)}
@@ -43,7 +67,7 @@ export default function NewProductAtList({
         <View style={styles.quantityAndValue}>
           <Text style={{ fontSize: 12 }}>Valor</Text>
           <Text style={styles.quantityAndValueNumber}>
-            R${parseInt(value).toFixed(2)}
+            R${value.toString().includes(".") ? value : `${value}.00`}
           </Text>
         </View>
       </View>
@@ -74,7 +98,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginVertical: 8,
     marginTop: 15,
-    paddingVertical: 7,
+    padding: 15,
     borderRadius: 50,
     width: "100%",
     shadowOffset: { width: 10, height: 10 },
@@ -89,7 +113,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "column",
-    marginRight: 40,
+    //marginRight: 40,
   },
   quantityAndValueNumber: {
     fontSize: 12,

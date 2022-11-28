@@ -89,12 +89,12 @@ export default function Produto({ route, navigation }) {
 
   const bntAction = (curretQTD) => {
     console.log("teste.qtd: ", curretQTD);
-    let parsedTotal = preco.replace(/[^0-9+,]/g, "").replace(",", ".");
+    //let parsedTotal = preco.replace(",", ".");
 
-    console.log("parse.valor", parsedTotal);
+    //console.log("parse.valor", parsedTotal);
 
     if (curretQTD > 0) {
-      let calc = parseFloat(parsedTotal).toFixed(2) * curretQTD;
+      let calc = preco * curretQTD;
       setTotal(calc);
     } else {
       console.log("é menor");
@@ -103,10 +103,10 @@ export default function Produto({ route, navigation }) {
 
   const calcTotal = () => {
     console.log("preco:", preco);
-    let parsedTotal = preco.replace(/[^0-9+,]/g, "").replace(",", ".");
+    //let parsedTotal = preco.replace(/[^0-9+,]/g, "").replace(",", ".");
 
     if (qtd > 0) {
-      let calc = parseFloat(parsedTotal).toFixed(2) * qtd;
+      let calc = +(preco * qtd).toFixed(2);
       setTotal(calc);
     } else {
       console.log("é meno4r", qtd);
@@ -189,7 +189,7 @@ export default function Produto({ route, navigation }) {
             <Text style={{ marginRight: 5 }}>R$</Text>
             <TextInput
               style={{ width: "100%" }}
-              onChangeText={(text) => setPreco(text.replace(/[^0-9+,]/g, ""))}
+              onChangeText={(text) => setPreco(+text)}
               value={preco}
               placeholder={currencyFormat(0)}
               keyboardType="numeric"
@@ -208,7 +208,7 @@ export default function Produto({ route, navigation }) {
             <TextInput
               style={styles.input}
               onChangeText={(text) =>
-                setQTD(parseInt(text.replace(/[^0-9]/g, "")))
+                setQTD(+text)
               }
               value={qtd}
               keyboardType="numeric"
@@ -257,7 +257,7 @@ export default function Produto({ route, navigation }) {
         <Text style={{ marginTop: 10, fontSize: 20 }}>
           TOTAL: R${" "}
           {parseInt(preco) > 0 && qtd > 0
-            ? parseInt(totalValue).toFixed(2)
+            ? `${totalValue}`
             : "0,00"}
         </Text>
 

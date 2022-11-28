@@ -86,7 +86,7 @@ export default function Home({ navigation }) {
   const searchFilterFunction = async (text) => {
     if (text) {
       const newList = defaultLists.filter((item) => {
-        const listItem = item.nome_lista.toLowerCase();
+        const listItem = item.nome.toLowerCase();
         const inputText = text.toLowerCase();
 
         return listItem.indexOf(inputText) > -1;

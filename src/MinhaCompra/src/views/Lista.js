@@ -25,6 +25,7 @@ export default function Lista({ navigation, route }) {
   const [productList, setProductList] = useState([]);
   const [total, setTotal] = useState("0");
   const [refresh, setRefresh] = useState(false);
+  const [currentList, setCurrentList] = useState()
 
   const isFocused = useIsFocused();
 
@@ -33,17 +34,19 @@ export default function Lista({ navigation, route }) {
     productList.forEach((product) => {
       totalValue += parseFloat(product.preco);
     });
-    return totalValue.toString();
+    return totalValue.toString() || null;
   };
 
   useEffect(() => {
-    console.log(">>>>>> listdata", listData);
+    //console.log(">>>>>> listdata", productList);
 
     consultaLista().then((listas) => {
       let currentList = listas.find((lista) => lista.id === listData.id);
+      setCurrentList(currentList)
       let produtos = JSON.parse(currentList.produtos);
       // currentList.produtos = produtos;
       // console.log("produtos", currentList);
+
       setProductList(produtos);
     });
 
@@ -54,15 +57,17 @@ export default function Lista({ navigation, route }) {
     changeTotalPrice();
   }, [isFocused, refresh]);
 
-  const Item = ({ product }) => (
+  const Item = ({ product }) => {
+    return(
     <NewProductAtList
-      key={product.id}
-      id={product.id}
+      key={listData.id}
       product={product.nome}
       quantity={product.quantidade}
       value={product.preco}
+      currentList={currentList}
+      navigation={navigation}
     />
-  );
+  )};
 
   const renderItem = ({ item }) => (
     <View>
@@ -94,7 +99,7 @@ export default function Lista({ navigation, route }) {
           }}
         >
           <Text style={{ fontSize: 20, marginTop: 33 }}>
-            TOTAL: R$ {parseFloat(changeTotalPrice()).toFixed(2)}
+            TOTAL: R$ {parseFloat(changeTotalPrice()) || ''}
           </Text>
 
           <TouchableOpacity
