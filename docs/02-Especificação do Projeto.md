@@ -63,19 +63,13 @@ O escopo funcional do projeto é definido por meio dos requisitos funcionais que
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| O aplicativo deve permitir ao usuário cadastrar/excluir sua conta. | ALTA | 
+|RF-001| O aplicativo deve permitir ao usuário cadastrar,atualizar e visualizar os seus dados | ALTA | 
 |RF-002| O aplicativo deve permitir ao usuário logar/deslogar da conta.   | ALTA |
-|RF-003| O aplicativo deve permitir ao usuário cadastrar listas de compras.   | ALTA |
+|RF-003| O aplicativo deve permitir ao usuário cadastrar novas listas, assim como visualizar e alterar as listas de compras anteriores.   | ALTA |
 |RF-004| O aplicativo deve permitir ao usuário cadastrar, visualizar, atualizar e deletar os itens de sua lista de compras.   | ALTA |
 |RF-005| O aplicativo deve permitir ao usuário cadastrar informações de produtos.   | ALTA |
-|RF-006| O aplicativo deve permitir ao usuário escanear o código de barras do produto e adicionar o valor do código ao cadastro deste produto.   | MÉDIA |
-|RF-007| O aplicativo deve permitir ao usuário cadastrar, visualizar e atualizar o preço dos produtos.   | ALTA |
-|RF-008| O aplicativo deve permitir ao usuário cadastrar um novo estabelecimento.   | ALTA |
-|RF-009| O aplicativo deve permitir ao usuário adicionar e atualizar o preço do produto conforme o estabelecimento.   | ALTA |
-|RF-010| O aplicativo deve permitir o cadastro de vários produtos por estabelecimento e de vários estabelecimentos por produto.   | ALTA |
-|RF-011| O aplicativo deve exibir o último preço cadastrado na base de usuários.   | MÉDIA |
-|RF-012| O aplicativo deve exibir um comparativo de preço entre as compras.   | ALTA |
-|RF-013| O aplicativo deve ter um sistema gamificado para que o usuário tenha acesso a algumas funcionalidades.   | ALTA |
+|RF-006| O aplicativo deve permitir ao usuário cadastrar, visualizar e atualizar o preço dos produtos.   | ALTA |
+
 
 ### Requisitos não Funcionais
 
