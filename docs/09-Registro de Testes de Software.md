@@ -32,7 +32,12 @@ Conforme o CT-02, o teste foi executado com sucesso. Ao consultar as informaçõ
 
 Conforme o CT-03, o teste foi executado com sucesso. após criar uma nova lista, a página de informções detalhadas é exibida. 
 
-![Tela de criar lista](img/Tela-lista.png)
+![Tela de criar lista](img/Tela-criando-lista1.1.jpeg)
+![Tela de criar lista](img/Tela-criando-lista-1.png)
+![Tela de criar lista](img/Tela-criando-lista2.2.jpeg)
+![Tela de criar lista](img/Tela-criando-lista-2.png)
+![Tela de criar lista](img/Tela-criando-lista3.3.jpeg)
+![Tela de criar lista](img/Tela-criando-lista-3.png)
 
 
 ## CT-04- Acessar lista existente
