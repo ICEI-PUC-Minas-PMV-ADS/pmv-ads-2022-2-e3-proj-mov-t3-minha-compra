@@ -15,21 +15,29 @@ Tabela de resumo com os resultados dos testes.
 
 Conforme o CT-01, o teste foi executado com sucesso. Todas os campos preecnhidos e enviados, são armazenados e dado como salvo com sucesso.
 
-![Tela de cadastro](img/Tela-alterar-perfil.png)
+[![Tela de cadastro](img/Tela-cadastro-usuario.jpeg)
 
+![Tela de cadastro](img/Tela-confirmacao-cadastro.png)
 
 ## CT-02- Consulta de dados
 
 Conforme o CT-02, o teste foi executado com sucesso. Ao consultar as informações do usuário, o resultado é exibido.
 
-![Tela de consulta de dados](img/Tela-perfil-usuario.png)
+![Tela de consulta de dados](img/Tela-consulta-dados.jpeg)
+
+![Tela de consulta de dados](img/Tela-conf-consulta-dados.png)
 
 
 ## CT-03- Criação de uma nova lista
 
 Conforme o CT-03, o teste foi executado com sucesso. após criar uma nova lista, a página de informções detalhadas é exibida. 
 
-![Tela de criar lista](img/Tela-lista.png)
+![Tela de criar lista](img/Tela-criando-lista1.1.jpeg)
+![Tela de criar lista](img/Tela-criando-lista-1.png)
+![Tela de criar lista](img/Tela-criando-lista2.2.jpeg)
+![Tela de criar lista](img/Tela-criando-lista-2.png)
+![Tela de criar lista](img/Tela-criando-lista3.3.jpeg)
+![Tela de criar lista](img/Tela-criando-lista-3.png)
 
 
 ## CT-04- Acessar lista existente
@@ -50,8 +58,11 @@ Conforme o CT-05, o teste foi executado com sucesso. Ao alterar algum campo da l
 
 Conforme o CT-06, o teste foi executado com sucesso. A opção de acessar os dados do usuário e realizar modificações é funcional, a mensagem de atualizado com sucesso é exibida.
 
-![Tela alteara dados do usuário](img/Tela-lista-mes.png)
+![Tela alteara dados do usuário](img/Tela-alterar-dados.jpeg)
 
+![Tela alteara dados do usuário](img/Tela-dados-alterado.jpeg)
+
+![Tela alteara dados do usuário](img/Tela-conf-alterar-dados.png)
 
 ## Avaliação
 

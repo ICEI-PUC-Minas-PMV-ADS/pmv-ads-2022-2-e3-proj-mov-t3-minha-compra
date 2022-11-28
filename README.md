@@ -1,4 +1,6 @@
-# MINHA COMPRA
+# Minha Compra
+
+![Logo MINHA COMPRA](docs/img/logo.PNG)
 
 `ANÁLISE E DESENVOLVIMENTO DE SISTEMAS`
 
@@ -45,7 +47,7 @@ Assim que a primeira versão do sistema estiver disponível, deverá complementa
 
 # Código
 
-<li><a href="src/README.md"> Código Fonte</a></li>
+<li><a href="src/MinhaCompra"> Código Fonte</a></li>
 
 # Apresentação
 

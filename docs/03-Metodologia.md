@@ -67,6 +67,7 @@ Após ter sido feita a análise das informações acima, criamos todo o gerencia
 
 ![Tela Trello](img/gitFlow.png)
 
+
 ### Ferramentas
 
 As ferramentas empregadas no projeto são:
@@ -78,3 +79,10 @@ As ferramentas empregadas no projeto são:
 - Ferramentas para Criação de Diagramas: Miro;
 
 Todas as ferramentas selecionadas pelo grupo para resolver problemas foram escolhidas por ter uma compatibilidade com o mercado e ser de fácil acesso para todos, visando entregar valor para o usuário final. Selecionamos ferramentas que já são familiares em certos aspectos, e de formas diferentes, para cada membro do grupo.
+
+
+</br>
+
+## Quadro Visual Atual de Gestão de Trabalho/ Status Atual das Contribuições dos Membros do Time
+![Quadro Distribuição Atual](img/quadroDistribuicaoAtual.PNG)
+<li><a href="https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/124/views/1"> Quadro atual - ETAPA 4</a></li>  
