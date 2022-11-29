@@ -95,11 +95,11 @@ export const defaultData = [
   },
   {
     tipo: "frios",
-    frios: ["manteiga", "iorgute", "requeijão", "queijo", "presunto"],
+    itens: ["manteiga", "iorgute", "requeijão", "queijo", "presunto"],
   },
   {
     tipo: "congelados",
-    congelados: [
+    itens: [
       "bife",
       "carde moida",
       "carne de frango",

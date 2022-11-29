@@ -186,16 +186,17 @@ export default function Home({ navigation }) {
             </Text>
           </View>
         ) : (
-          (filteredList ? filteredList : defaultLists).map((list) => {
+          (filteredList ? filteredList : defaultLists).map((list, index) => {
             return (
               <TouchableOpacity
+                key={index}
                 onPress={() => {
                   navigation.navigate("Lista", {
                     data: list,
                   });
                 }}
               >
-                <Lists key={list.id} name={list.nome} />
+                <Lists name={list.nome} />
               </TouchableOpacity>
             );
           })

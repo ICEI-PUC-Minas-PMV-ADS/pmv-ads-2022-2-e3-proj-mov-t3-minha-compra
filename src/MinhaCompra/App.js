@@ -1,7 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { LogBox } from "react-native";
 
 import Login from "./src/views/Login";
 import Home from "./src/views/Home";
@@ -15,6 +14,10 @@ import Profile from "./src/views/Profile";
 import Refresh from "./src/views/Refresh";
 import ModalProduto from "./src/components/ModalProduto";
 import ModalCategoria from "./src/components/ModalCategoria";
+
+import { LogBox } from "react-native";
+LogBox.ignoreLogs(["Warning: ..."]); // Ignore log notification by message
+LogBox.ignoreAllLogs(); //Ignore all log notifications
 
 const Stack = createNativeStackNavigator();
 
