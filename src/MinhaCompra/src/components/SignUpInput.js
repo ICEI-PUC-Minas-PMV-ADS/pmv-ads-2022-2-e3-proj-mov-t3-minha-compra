@@ -153,6 +153,7 @@ export default function SignUpInput() {
             onChangeText={(text) => setEmail(text)}
             value={email}
             placeholder="Email"
+            autoCapitalize="none"
             maxLength={40}
           />
         </View>

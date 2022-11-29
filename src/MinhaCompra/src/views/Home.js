@@ -17,6 +17,7 @@ import {
   criaLista,
   consultaLista,
   excluiTodasAsListas,
+  excluiTodosOsUsuarios,
 } from "../services/DataService";
 import ButtonFab from "../components/ButtonFab";
 import { async } from "@firebase/util";
@@ -33,6 +34,10 @@ export default function Home({ navigation }) {
 
   useEffect(() => {
     // excluiTodasAsListas()
+    //   .then((data) => console.log(data))
+    //   .catch((e) => console.log(e));
+
+    // excluiTodosOsUsuarios()
     //   .then((data) => console.log(data))
     //   .catch((e) => console.log(e));
 

@@ -65,6 +65,7 @@ export default function LoginInput(props) {
             onChangeText={setEmail}
             value={email}
             placeholder="Email"
+            autoCapitalize="none"
           />
         </View>
         <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -75,6 +76,7 @@ export default function LoginInput(props) {
             value={senha}
             placeholder="Senha"
             secureTextEntry={true}
+            autoCapitalize="none"
             maxLength={20}
           />
         </View>
