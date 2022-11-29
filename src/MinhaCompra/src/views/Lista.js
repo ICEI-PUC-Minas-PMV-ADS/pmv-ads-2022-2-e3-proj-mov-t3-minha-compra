@@ -25,7 +25,7 @@ export default function Lista({ navigation, route }) {
   const [productList, setProductList] = useState([]);
   const [total, setTotal] = useState("0");
   const [refresh, setRefresh] = useState(false);
-  const [currentList, setCurrentList] = useState()
+  const [currentList, setCurrentList] = useState();
 
   const isFocused = useIsFocused();
 
@@ -34,7 +34,7 @@ export default function Lista({ navigation, route }) {
     productList.forEach((product) => {
       totalValue += parseFloat(product.preco);
     });
-   
+
     return currencyFormat(totalValue) || null;
   };
 
@@ -47,7 +47,7 @@ export default function Lista({ navigation, route }) {
 
     consultaLista().then((listas) => {
       let currentList = listas.find((lista) => lista.id === listData.id);
-      setCurrentList(currentList)
+      setCurrentList(currentList);
       let produtos = JSON.parse(currentList.produtos);
       // currentList.produtos = produtos;
       // console.log("produtos", currentList);
@@ -63,16 +63,17 @@ export default function Lista({ navigation, route }) {
   }, [isFocused, refresh]);
 
   const Item = ({ product }) => {
-    return(
-    <NewProductAtList
-      key={listData.id}
-      product={product.nome}
-      quantity={product.quantidade}
-      value={product.preco}
-      currentList={currentList}
-      navigation={navigation}
-    />
-  )};
+    return (
+      <NewProductAtList
+        key={listData.id}
+        product={product.nome}
+        quantity={product.quantidade}
+        value={product.preco}
+        currentList={currentList}
+        navigation={navigation}
+      />
+    );
+  };
 
   const renderItem = ({ item }) => (
     <View>
@@ -104,7 +105,7 @@ export default function Lista({ navigation, route }) {
           }}
         >
           <Text style={{ fontSize: 20, marginTop: 33 }}>
-            TOTAL: R$ {changeTotalPrice() || ''}
+            TOTAL: R$ {changeTotalPrice().replace(".", ",") || ""}
           </Text>
 
           <TouchableOpacity

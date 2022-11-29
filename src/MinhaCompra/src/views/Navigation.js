@@ -45,7 +45,7 @@ export default function Navigation() {
         }}
       />
 
-      <Tab.Screen
+      {/* <Tab.Screen
         name={"Statistic"}
         component={Statistic}
         options={{
@@ -54,7 +54,7 @@ export default function Navigation() {
             <AntDesign name="barschart" size={size} color={color} />
           ),
         }}
-      />
+      /> */}
 
       {/* <Tab.Screen
         name={"Lista"}

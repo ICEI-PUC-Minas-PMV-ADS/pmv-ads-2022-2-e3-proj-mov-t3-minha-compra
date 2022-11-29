@@ -207,9 +207,7 @@ export default function Produto({ route, navigation }) {
           <View style={{ flexDirection: "row", marginBottom: 20 }}>
             <TextInput
               style={styles.input}
-              onChangeText={(text) =>
-                setQTD(+text)
-              }
+              onChangeText={(text) => setQTD(+text)}
               value={qtd}
               keyboardType="numeric"
               maxLength={40}
@@ -257,7 +255,7 @@ export default function Produto({ route, navigation }) {
         <Text style={{ marginTop: 10, fontSize: 20 }}>
           TOTAL: R${" "}
           {parseInt(preco) > 0 && qtd > 0
-            ? `${currencyFormat(totalValue)}`
+            ? `${totalValue.toFixed(2).replace(".", ",")}`
             : "0,00"}
         </Text>
 

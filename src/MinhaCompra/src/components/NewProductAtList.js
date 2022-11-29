@@ -2,7 +2,11 @@ import React, { useState, useContext, useEffect } from "react";
 import { StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
 import ButtonFab from "./ButtonFab";
 import Trash from "../assets/image/trash.svg";
-import { deletaProduto, atualizaLista, consultaLista } from "../services/DataService";
+import {
+  deletaProduto,
+  atualizaLista,
+  consultaLista,
+} from "../services/DataService";
 import AppContext from "../views/AppContext";
 
 export default function NewProductAtList({
@@ -10,24 +14,23 @@ export default function NewProductAtList({
   quantity,
   value,
   currentList,
-  navigation
+  navigation,
 }) {
   const context = useContext(AppContext);
-  const [currentArray, setCurrentArray] = useState()
+  const [currentArray, setCurrentArray] = useState();
 
   const deleteProduct = async () => {
-
     try {
+      const currentObject = JSON.parse(currentList.produtos).find(
+        (currentProduct) => currentProduct.nome === product
+      );
+      console.log(currentObject);
 
-      const currentObject = JSON.parse(currentList.produtos).find(currentProduct => currentProduct.nome === product)
-      console.log(currentObject)
+      const newProductList = [];
 
-      const newProductList = []
-
-      for(let i = 0; i < JSON.parse(currentList.produtos).length; i++) {
-
-        if(JSON.parse(currentList.produtos)[i].nome !== currentObject.nome) {
-          newProductList.push(JSON.parse(currentList.produtos)[i])
+      for (let i = 0; i < JSON.parse(currentList.produtos).length; i++) {
+        if (JSON.parse(currentList.produtos)[i].nome !== currentObject.nome) {
+          newProductList.push(JSON.parse(currentList.produtos)[i]);
         }
       }
 
@@ -36,11 +39,11 @@ export default function NewProductAtList({
         nome: currentList.nome,
         produtos: JSON.stringify(newProductList),
         total: "ok",
-      }).then(() => {
-       context.changeRefresh(!context.refresh);
       })
-      .catch(e => console.log(e))
-
+        .then(() => {
+          context.changeRefresh(!context.refresh);
+        })
+        .catch((e) => console.log(e));
     } catch (error) {
       console.log("deleteProduct.error: ", error);
     }
@@ -56,7 +59,7 @@ export default function NewProductAtList({
         style={{
           flexDirection: "row",
           alignItems: "center",
-          justifyContent: 'space-between',
+          justifyContent: "space-between",
           width: "85%",
         }}
       >
@@ -70,7 +73,7 @@ export default function NewProductAtList({
         <View style={styles.quantityAndValue}>
           <Text style={{ fontSize: 12 }}>Valor</Text>
           <Text style={styles.quantityAndValueNumber}>
-            R${currencyFormat(parseFloat(value))}
+            R${currencyFormat(parseFloat(value)).replace(".", ",")}
           </Text>
         </View>
       </View>
@@ -111,6 +114,7 @@ const styles = StyleSheet.create({
   },
   listTitle: {
     fontSize: 16,
+    marginLeft: 5,
   },
   quantityAndValue: {
     alignItems: "center",
